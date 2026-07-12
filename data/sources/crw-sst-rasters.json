@@ -1,0 +1,80 @@
+{
+  "id": "crw-sst-rasters",
+  "title": "NOAA Coral Reef Watch Sea Surface Temperature Rasters — Red Sea",
+  "abstract": "Daily 5 km sea surface temperature and thermal stress (Degree Heating Week) raster composites clipped to the Red Sea basin, derived from NOAA Coral Reef Watch satellite products. Used as the primary environmental baseline for bleaching risk and warming trend analyses.",
+  "domain": ["environmental"],
+  "themes": ["SST", "thermal stress", "degree heating weeks", "remote sensing"],
+  "keywords": ["sea surface temperature", "coral bleaching", "satellite", "NOAA", "CRW", "climate"],
+  "spatial": {
+    "bbox": [32.5, 12.5, 43.5, 29.5],
+    "subbasins": ["northern", "central", "southern", "gulf-of-aqaba"],
+    "resolution": "5 km",
+    "geometry_file": "/geo/crw-sst-bbox.geojson"
+  },
+  "temporal": {
+    "start": "1985-01",
+    "end": "2026-06",
+    "frequency": "daily",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Daily SST composite (NetCDF)",
+      "format": "NetCDF",
+      "path": "/datawaha/environmental/crw-sst/daily_sst.nc",
+      "size": "18.2 GB",
+      "n_rows": 14975,
+      "variables": [
+        {
+          "name": "sst",
+          "label": "Sea Surface Temperature",
+          "type": "float",
+          "unit": "degC",
+          "description": "Daily nighttime SST composite from VIIRS/AVHRR blended product.",
+          "missing_values": ["-999", "NaN"],
+          "maps_to": ["ecological:thermal_stress_index", "production:aquaculture_suitability"]
+        },
+        {
+          "name": "dhw",
+          "label": "Degree Heating Week",
+          "type": "float",
+          "unit": "degC-weeks",
+          "description": "Accumulated thermal stress over a trailing 12-week window.",
+          "missing_values": ["-999"],
+          "maps_to": ["ecological:coral_bleaching_alert"]
+        },
+        {
+          "name": "sst_anomaly",
+          "label": "SST Anomaly",
+          "type": "float",
+          "unit": "degC",
+          "description": "Deviation from the 1985-2012 climatological mean for the same day-of-year.",
+          "missing_values": ["-999"],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Dr. Amina Al-Farsi",
+      "email": "amina.alfarsi@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly downloadable via NOAA CRW ERDDAP; a Red-Sea-clipped mirror is available on DataWaha without approval."
+  },
+  "provenance": {
+    "originator": "NOAA Coral Reef Watch",
+    "license": "Public domain (US Government work)",
+    "citation": "NOAA Coral Reef Watch. 2026. Daily Global 5km Satellite Coral Bleaching Heat Stress Data Products.",
+    "doi": "10.25921/rzsn-ap40",
+    "source_url": "https://coralreefwatch.noaa.gov/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": ["Small cloud-masking gaps in Gulf of Suez during winter months."],
+    "last_verified": "2026-05-14"
+  },
+  "used_in": ["Kingdom_RedSea_Compilation", "coral-bleaching-risk-2025"]
+}

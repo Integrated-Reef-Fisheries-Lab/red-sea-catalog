@@ -1,0 +1,80 @@
+{
+  "id": "artisanal-fisher-economic-survey",
+  "title": "Artisanal Fisher Livelihoods and Economic Survey",
+  "abstract": "Cross-sectional socio-economic survey of artisanal fishing households along the Red Sea coast, covering income, gear investment, market access, and perceived climate and regulatory pressures on livelihoods.",
+  "domain": ["socio-economic"],
+  "themes": ["fisher livelihoods", "household income", "market access", "gear investment"],
+  "keywords": ["artisanal fisheries", "livelihoods", "socio-economic survey", "income", "small-scale fishing"],
+  "spatial": {
+    "bbox": [36.0, 16.5, 42.0, 27.5],
+    "subbasins": ["northern", "central", "southern", "farasan"],
+    "resolution": "site-level",
+    "geometry_file": "/geo/fisher-survey-sites.geojson"
+  },
+  "temporal": {
+    "start": "2022-03",
+    "end": "2022-09",
+    "frequency": "once",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Fisher household survey (CSV)",
+      "format": "CSV",
+      "path": "/datawaha/socio-economic/fisher-survey/household_survey.csv",
+      "size": "1.8 MB",
+      "n_rows": 2340,
+      "variables": [
+        {
+          "name": "fisher_household_income",
+          "label": "Annual Household Income from Fishing",
+          "type": "float",
+          "unit": "SAR/year",
+          "description": "Self-reported annual net income attributable to fishing activity.",
+          "missing_values": ["NA", "refused"],
+          "maps_to": ["production:vessel_count"]
+        },
+        {
+          "name": "gear_investment",
+          "label": "Gear and Vessel Investment",
+          "type": "float",
+          "unit": "SAR",
+          "description": "Estimated current replacement value of owned fishing gear and vessel.",
+          "missing_values": ["NA"],
+          "maps_to": []
+        },
+        {
+          "name": "market_access_score",
+          "label": "Market Access Score",
+          "type": "integer",
+          "unit": "index 1-5",
+          "description": "Composite index of distance to market, price transparency, and cold-chain availability.",
+          "missing_values": ["NA"],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "Dr. Omar Bakhsh",
+      "email": "omar.bakhsh@kaust.edu.sa"
+    },
+    "how_to_request": "Available to KAUST-affiliated researchers via DataWaha login; external requests reviewed case-by-case by the steward."
+  },
+  "provenance": {
+    "originator": "KAUST Marine Socio-Economics Lab",
+    "license": "CC BY-NC 4.0",
+    "citation": "Bakhsh, O. et al. 2023. Livelihoods of Artisanal Fishers on the Saudi Red Sea Coast. KAUST Working Paper Series.",
+    "doi": null,
+    "source_url": null,
+    "derived_from": ["gastat-fish-production"]
+  },
+  "quality": {
+    "status": "cleaned",
+    "known_issues": ["Farasan Islands subsample collected by a different enumerator team; minor survey-instrument variation."],
+    "last_verified": "2026-02-11"
+  },
+  "used_in": ["Kingdom_RedSea_Compilation"]
+}

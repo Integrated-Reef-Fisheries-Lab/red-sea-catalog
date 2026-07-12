@@ -1,0 +1,80 @@
+{
+  "id": "gastat-fish-production",
+  "title": "GASTAT Annual Fisheries Production Statistics — Red Sea Governorates",
+  "abstract": "National fisheries production statistics for Red Sea coastal governorates published by the General Authority for Statistics (GASTAT), covering annual landings by species group, gear type, and port of landing.",
+  "domain": ["production"],
+  "themes": ["fish landings", "aquaculture output", "gear type", "national statistics"],
+  "keywords": ["fisheries production", "GASTAT", "landings", "aquaculture", "governorate"],
+  "spatial": {
+    "bbox": [34.5, 16.0, 42.8, 28.8],
+    "subbasins": ["northern", "central", "southern", "gulf-of-aqaba", "farasan"],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2000",
+    "end": "2025",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Fisheries production by governorate (XLSX)",
+      "format": "XLSX",
+      "path": "/datawaha/production/gastat/fisheries_production.xlsx",
+      "size": "6.4 MB",
+      "n_rows": 3900,
+      "variables": [
+        {
+          "name": "landings_tonnes",
+          "label": "Total Landings",
+          "type": "float",
+          "unit": "tonnes",
+          "description": "Annual reported fish landings by species group and governorate.",
+          "missing_values": ["-"],
+          "maps_to": ["ecological:fish_biomass"]
+        },
+        {
+          "name": "aquaculture_output_tonnes",
+          "label": "Aquaculture Production",
+          "type": "float",
+          "unit": "tonnes",
+          "description": "Farmed fish and shrimp production reported by licensed aquaculture facilities.",
+          "missing_values": ["-"],
+          "maps_to": []
+        },
+        {
+          "name": "vessel_count",
+          "label": "Registered Fishing Vessels",
+          "type": "integer",
+          "unit": "count",
+          "description": "Number of licensed fishing vessels active in the governorate for the reporting year.",
+          "missing_values": ["-"],
+          "maps_to": ["socio-economic:fisher_household_income"]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "GASTAT Fisheries Statistics Unit",
+      "email": "fisheries.stats@gastat.gov.sa"
+    },
+    "how_to_request": "Published openly on the GASTAT open data portal; no request required."
+  },
+  "provenance": {
+    "originator": "General Authority for Statistics (GASTAT), Saudi Arabia",
+    "license": "Saudi Open Data License",
+    "citation": "GASTAT. 2026. Fisheries Production Bulletin, Red Sea Governorates 2000-2025. Riyadh: General Authority for Statistics.",
+    "doi": null,
+    "source_url": "https://www.stats.gov.sa/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": ["Species-group categories changed in 2015, complicating pre/post trend comparisons."],
+    "last_verified": "2026-03-01"
+  },
+  "used_in": ["Kingdom_RedSea_Compilation"]
+}

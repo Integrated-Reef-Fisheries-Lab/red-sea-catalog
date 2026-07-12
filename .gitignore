@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.DS_Store
+*.log
+
+# Generated at build time by scripts/build-search-index.mjs — never hand-edit,
+# and no need to commit since npm run build regenerates it (CI does this too).
+public/search-index.json

@@ -1,0 +1,80 @@
+{
+  "id": "coastal-seafood-nutrition-survey",
+  "title": "Coastal Household Seafood Consumption and Nutrition Survey",
+  "abstract": "Household-level dietary recall survey measuring seafood consumption frequency, portion size, and micronutrient intake (omega-3, iron, iodine) among coastal communities along the Saudi Red Sea coast, linked to local market fish species.",
+  "domain": ["nutrition-health"],
+  "themes": ["seafood consumption", "micronutrient intake", "dietary recall", "food security"],
+  "keywords": ["nutrition", "seafood", "omega-3", "household survey", "diet", "health"],
+  "spatial": {
+    "bbox": [38.5, 20.5, 40.0, 24.0],
+    "subbasins": ["central", "southern"],
+    "resolution": "site-level",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2019-06",
+    "end": "2020-02",
+    "frequency": "once",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Household dietary recall (CSV)",
+      "format": "CSV",
+      "path": "/datawaha/nutrition-health/coastal-seafood/dietary_recall.csv",
+      "size": "3.1 MB",
+      "n_rows": 5210,
+      "variables": [
+        {
+          "name": "seafood_meals_per_week",
+          "label": "Seafood Meals per Week",
+          "type": "float",
+          "unit": "meals/week",
+          "description": "Self-reported average number of seafood-containing meals consumed per household member per week.",
+          "missing_values": ["NA", "999"],
+          "maps_to": ["production:landings_tonnes"]
+        },
+        {
+          "name": "omega3_intake_mg",
+          "label": "Omega-3 Intake",
+          "type": "float",
+          "unit": "mg/day",
+          "description": "Estimated daily omega-3 fatty acid intake from seafood, derived from species-specific nutrient composition tables.",
+          "missing_values": ["NA"],
+          "maps_to": []
+        },
+        {
+          "name": "primary_species_consumed",
+          "label": "Primary Species Consumed",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Most frequently consumed fish or shellfish species reported by the household.",
+          "missing_values": ["NA", "unknown"],
+          "maps_to": ["production:landings_tonnes"]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "restricted",
+    "steward": {
+      "name": "Dr. Layla Haddad",
+      "email": "layla.haddad@kaust.edu.sa"
+    },
+    "how_to_request": "Requires IRB-approved research protocol and a signed individual-level data use agreement; contact the steward directly."
+  },
+  "provenance": {
+    "originator": "KAUST Public Health Research Group",
+    "license": "Restricted — not for redistribution",
+    "citation": "Haddad, L. et al. 2021. Seafood Consumption and Micronutrient Status in Coastal Red Sea Communities. KAUST Technical Report.",
+    "doi": "10.25781/KAUST-nutri-2021",
+    "source_url": null,
+    "derived_from": ["gastat-fish-production"]
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": ["Self-reported portion sizes not validated against biomarkers.", "Southern subbasin sample size is small (n=140)."],
+    "last_verified": "2026-01-20"
+  },
+  "used_in": ["Kingdom_RedSea_Compilation"]
+}
