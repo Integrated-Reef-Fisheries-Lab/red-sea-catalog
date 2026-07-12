@@ -1,0 +1,151 @@
+{
+  "id": "gfw-fishing-effort-saudi",
+  "title": "Global Fishing Watch — AIS Apparent Fishing Effort, Saudi Arabia EEZ (2012–2025)",
+  "abstract": "Gridded, low-spatial-resolution daily apparent fishing hours derived from AIS vessel tracking, aggregated by flag state and (intended) gear type within the Saudi Arabia EEZ region, downloaded via the gfwr R client per the accompanying processing script (GFW.R). Covers both the Red Sea and Arabian Gulf coasts of Saudi Arabia.",
+  "domain": [
+    "production"
+  ],
+  "themes": [
+    "fishing effort",
+    "AIS",
+    "remote sensing",
+    "vessel activity"
+  ],
+  "keywords": [
+    "Global Fishing Watch",
+    "GFW",
+    "AIS",
+    "fishing effort",
+    "Saudi Arabia EEZ"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16.4,
+      51.6,
+      29.4
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "low (~0.1° grid cells, GFW 'LOW' spatial_resolution setting)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2012-01",
+    "end": "2025-11",
+    "frequency": "daily",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Saudi Arabia EEZ fishing effort, 2012-2025 (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Production/Secondary/saudi_GFW_full_2012_2025.csv",
+      "size": "7.9 MB",
+      "n_rows": 235235,
+      "variables": [
+        {
+          "name": "Lat",
+          "label": "Latitude",
+          "type": "float",
+          "unit": "degrees WGS84",
+          "description": "Latitude of the grid-cell centroid.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Lon",
+          "label": "Longitude",
+          "type": "float",
+          "unit": "degrees WGS84",
+          "description": "Longitude of the grid-cell centroid.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Time Range",
+          "label": "Date",
+          "type": "date",
+          "unit": "n/a",
+          "description": "Date of the observation (daily temporal resolution).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Flag",
+          "label": "Flag State",
+          "type": "string",
+          "unit": "ISO3 code",
+          "description": "Flag state of the vessel(s) contributing fishing hours to this cell/date.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Geartype",
+          "label": "Gear Type",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Intended gear-type grouping; empty ('NA') for all rows in this extract (see known_issues).",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Vessel IDs",
+          "label": "Contributing Vessel Count",
+          "type": "integer",
+          "unit": "count",
+          "description": "Count of unique vessels contributing to this grid cell/date/flag combination — not a vessel identifier or name (documented inline in GFW.R).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Apparent Fishing Hours",
+          "label": "Apparent Fishing Hours",
+          "type": "float",
+          "unit": "hours",
+          "description": "AIS-derived apparent fishing effort aggregated for the cell/date/flag combination.",
+          "missing_values": [],
+          "maps_to": [
+            "ecological:fishing_pressure"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Data Inventory Team",
+      "email": "data-inventory@kaust.edu.sa"
+    },
+    "how_to_request": "Global Fishing Watch public fishing-effort data is freely downloadable/queryable (globalfishingwatch.org/data-download); this specific extract was pulled via the gfwr R package (see GFW.R) and is available locally without request."
+  },
+  "provenance": {
+    "originator": "Global Fishing Watch",
+    "license": null,
+    "citation": null,
+    "doi": null,
+    "source_url": "https://globalfishingwatch.org/data-download/datasets/public-fishing-effort",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "The Geartype column is empty ('NA') for every row in this extract, even though the processing script (GFW.R) requested group_by = 'FLAGANDGEARTYPE'; gear-type breakdowns are not usable from this file as-is.",
+      "'Vessel IDs' is a count of unique contributing vessels, not an actual vessel identifier — explicitly noted as a gotcha in GFW.R's inline comments.",
+      "Coverage is the full Saudi Arabia EEZ (GFW EEZ region code 'SAU'), which spans both the Red Sea and Arabian Gulf coasts (observed longitude range 34.5-51.6°E, latitude 16.4-29.4°N); records east of roughly 42-43°E fall in the Arabian Gulf, not the Red Sea, and should be filtered out (e.g. by bbox or by geometry) for Red-Sea-specific analyses.",
+      "Low spatial resolution ('LOW' setting in the gfwr query) — coordinates are coarse grid-cell centroids, not vessel tracks.",
+      "This is a static, point-in-time extract (per GFW.R, pulled through 2026-03-27 request date, with data present through Nov 2025); it will not reflect more recent activity unless the script is rerun.",
+      "License terms for redistribution were not verified locally; consult Global Fishing Watch's data-download terms before further use/sharing."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

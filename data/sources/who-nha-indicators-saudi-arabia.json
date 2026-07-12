@@ -1,0 +1,102 @@
+{
+  "id": "who-nha-indicators-saudi-arabia",
+  "title": "National Health Accounts (NHA) Indicators — Saudi Arabia",
+  "abstract": "Health financing and expenditure indicators for Saudi Arabia (e.g. Current Health Expenditure as % of GDP, per-capita health expenditure, expenditure by financing scheme, health care function, and provider type), reported annually from 2000 onward, following the WHO/OECD/Eurostat System of Health Accounts framework.",
+  "domain": [
+    "nutrition-health"
+  ],
+  "themes": [
+    "health financing",
+    "national health accounts",
+    "health expenditure",
+    "national statistics"
+  ],
+  "keywords": [
+    "NHA",
+    "national health accounts",
+    "health expenditure",
+    "WHO",
+    "Saudi Arabia",
+    "health financing"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      28.8
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2000",
+    "end": "2018",
+    "frequency": "annual",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "NHA indicators, Saudi Arabia, 2000-2018+ (XLSX)",
+      "format": "XLSX",
+      "path": "KAUST - DATA/Human Nutrition and Health/NHA indicators.xlsx",
+      "size": "34.6 KB",
+      "n_rows": 232,
+      "variables": [
+        {
+          "name": "indicator",
+          "label": "NHA Indicator",
+          "type": "string",
+          "unit": "categorical",
+          "description": "National Health Accounts indicator name (e.g. Current Health Expenditure (CHE) as % GDP, Compulsory Health Insurance as % CHE, expenditure by health care function/provider/financing scheme).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "value_by_year",
+          "label": "Indicator Value by Year",
+          "type": "float",
+          "unit": "varies (% of GDP, US$, US$ per capita)",
+          "description": "Annual indicator value in wide format, one column per year from 2000 onward.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Human Nutrition and Health Data Team",
+      "email": "nutrition-health-data@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly available from the WHO Global Health Expenditure Database (apps.who.int/nha/database); no request required."
+  },
+  "provenance": {
+    "originator": "World Health Organization (WHO) Global Health Expenditure Database, National Health Accounts — Saudi Arabia extract",
+    "license": "WHO open data terms",
+    "citation": "World Health Organization. Global Health Expenditure Database. Geneva: WHO.",
+    "doi": null,
+    "source_url": "https://apps.who.int/nha/database",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "File contains only Saudi Arabia (single-country extract); exact extraction/download date and WHO release vintage not recorded in the file itself, could not be independently confirmed against the live WHO database without internet access at cataloging time.",
+      "Health financing/expenditure indicators are not nutrition-specific; included for national health-system context per the Human Nutrition and Health domain scope.",
+      "No sub-national spatial detail; applied uniformly across all five subbasins as national-level statistics."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

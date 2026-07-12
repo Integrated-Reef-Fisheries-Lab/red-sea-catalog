@@ -1,0 +1,143 @@
+{
+  "id": "kaust-modis-aqua-chlorophyll-a-daily",
+  "title": "AQUA/MODIS Chlorophyll-a Daily L3m Ocean Color — Red Sea",
+  "abstract": "Daily NASA AQUA/MODIS Level-3 mapped (L3m) ocean color chlorophyll-a concentration granules covering the Red Sea, downloaded per-scene from NASA OceanColor/OB.DAAC and archived internally in three parallel forms: an extracted directory of daily NetCDF granules, a tar bundle of the same granules, and a single time-merged ('combined') NetCDF file spanning the full record. Standard OC3/OCx chlorophyll-a algorithm product (variable 'chlor_a').",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "chlorophyll-a",
+    "ocean color",
+    "remote sensing",
+    "primary productivity"
+  ],
+  "keywords": [
+    "chlorophyll",
+    "MODIS",
+    "AQUA",
+    "NASA",
+    "ocean color",
+    "L3m",
+    "chlor_a",
+    "satellite"
+  ],
+  "spatial": {
+    "bbox": [
+      32.5,
+      12.5,
+      43.5,
+      29.5
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "4 km (L3m daily, scene extent varies with swath/cloud cover)"
+  },
+  "temporal": {
+    "start": "2005-01",
+    "end": "2026-04",
+    "frequency": "daily",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Daily CHL granules (directory of NetCDF files)",
+      "format": "NetCDF (directory of per-day files)",
+      "path": "KAUST - DATA/Environmental/Secondary/Chlorophyll Concentration/",
+      "size": "424 MB",
+      "n_rows": 7123,
+      "variables": [
+        {
+          "name": "chlor_a",
+          "label": "Chlorophyll-a concentration",
+          "type": "float",
+          "unit": "mg m^-3",
+          "description": "Near-surface chlorophyll-a concentration from the standard OCx/OC3 empirical band-ratio algorithm applied to AQUA/MODIS L3m daily granules (filename pattern AQUA_MODIS.YYYYMMDD.L3m.DAY.CHL.x_chlor_a.nc; files from 2026 onward carry a .NRT near-real-time flag).",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:primary_productivity"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Daily CHL granules (tar archive)",
+      "format": "TAR (bundle of NetCDF files)",
+      "path": "KAUST - DATA/Environmental/Secondary/Chlorophyll Concentration.tar",
+      "size": "411 MB",
+      "n_rows": 7123,
+      "variables": [
+        {
+          "name": "chlor_a",
+          "label": "Chlorophyll-a concentration",
+          "type": "float",
+          "unit": "mg m^-3",
+          "description": "Same content as the extracted directory resource; tar-packaged copy of daily AQUA/MODIS L3m CHL granules (paths inside archive under requested_files/).",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:primary_productivity"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Combined time series (single NetCDF)",
+      "format": "NetCDF",
+      "path": "KAUST - DATA/Environmental/Secondary/AQUA_MODIS_CHLO_combined.nc",
+      "size": "4.17 GB",
+      "n_rows": 7123,
+      "variables": [
+        {
+          "name": "chlor_a",
+          "label": "Chlorophyll-a concentration",
+          "type": "float",
+          "unit": "mg m^-3",
+          "description": "Apparent time-concatenated merge of the daily CHL granules into one multi-time-step NetCDF file. Internal structure (time dimension length, exact merge method) not verified — file was not opened/parsed.",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:primary_productivity"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "Unassigned - KAUST Red Sea Data Team",
+      "email": "redsea-data@kaust.edu.sa"
+    },
+    "how_to_request": "Contact KAUST Red Sea data team; underlying granules are also freely re-downloadable from NASA OceanColor Web (OB.DAAC) for the same date range and bounding box."
+  },
+  "provenance": {
+    "originator": "NASA Goddard Space Flight Center, Ocean Biology Processing Group (OB.DAAC) - AQUA/MODIS",
+    "license": "Public domain (NASA open data policy)",
+    "citation": "NASA Ocean Biology Processing Group. AQUA/MODIS Ocean Color Data, Chlorophyll-a Concentration, OCx Algorithm, NASA OB.DAAC.",
+    "doi": null,
+    "source_url": "https://oceancolor.gsfc.nasa.gov/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "n_rows for the combined NetCDF is inferred from the granule count of the daily-file resources, not verified by opening the file (no NetCDF-reading tool was available in this environment).",
+      "File count (7123) does not equal a full daily count over 2005-2026 due to cloud-masked/no-data days already excluded upstream at NASA.",
+      "Files after ~2026-01 carry a .NRT (near-real-time) suffix and may later be replaced by reprocessed standard files; duplicates/overlap with final files not checked."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

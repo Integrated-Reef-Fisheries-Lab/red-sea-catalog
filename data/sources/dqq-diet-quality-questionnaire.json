@@ -1,0 +1,117 @@
+{
+  "id": "dqq-diet-quality-questionnaire",
+  "title": "Global Dietary Quality Questionnaire (DQQ) Results — Saudi Arabia",
+  "abstract": "Standardized Dietary Quality Questionnaire results providing diet quality indicators (e.g. Minimum Dietary Diversity for Women, food group consumption) disaggregated by income group, region, and demographic subgroup, for 2021-2024.",
+  "domain": [
+    "nutrition-health"
+  ],
+  "themes": [
+    "dietary diversity",
+    "diet quality",
+    "food consumption"
+  ],
+  "keywords": [
+    "DQQ",
+    "dietary diversity",
+    "MDD-W",
+    "diet quality"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      32.2
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2021",
+    "end": "2024",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "DQQ results by country/subgroup/indicator",
+      "format": "CSV",
+      "path": "KAUST - DATA/DQQ_Results_2021-2024.csv",
+      "size": "3.6 MB",
+      "n_rows": 25109,
+      "variables": [
+        {
+          "name": "Indicator",
+          "label": "Dietary Indicator",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Which diet quality indicator this row reports (e.g. MDD-W = Minimum Dietary Diversity for Women).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Mean",
+          "label": "Indicator Mean Value",
+          "type": "float",
+          "unit": "percent or indicator-specific",
+          "description": "Mean value of the indicator for the country/subgroup.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Subgroup",
+          "label": "Demographic Subgroup",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Population subgroup (e.g. All, Male, Female).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "n",
+          "label": "Sample Size",
+          "type": "integer",
+          "unit": "count",
+          "description": "Number of respondents underlying the estimate.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Global Diet Quality Project (mirrored internally by KAUST)",
+      "email": ""
+    },
+    "how_to_request": "Publicly downloadable from https://www.dietquality.org/."
+  },
+  "provenance": {
+    "originator": "Global Diet Quality Project (Gallup World Poll partnership)",
+    "license": "Open data per Global Diet Quality Project terms",
+    "citation": "Global Diet Quality Project. Dietary Quality Questionnaire (DQQ) Results, 2021-2024.",
+    "doi": null,
+    "source_url": "https://www.dietquality.org/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [
+      "Dataset is a global compilation covering all countries — has not yet been filtered to the Saudi Arabia rows specifically for this catalog entry."
+    ],
+    "last_verified": "2026-04-22"
+  },
+  "used_in": []
+}

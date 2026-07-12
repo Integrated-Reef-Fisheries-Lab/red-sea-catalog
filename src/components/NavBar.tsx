@@ -4,6 +4,7 @@ const LINKS = [
   { href: '/', label: 'Browse' },
   { href: '/map', label: 'Map' },
   { href: '/coverage', label: 'Coverage' },
+  { href: '/network', label: 'Network' },
 ];
 
 export default function NavBar() {

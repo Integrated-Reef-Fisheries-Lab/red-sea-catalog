@@ -1,0 +1,108 @@
+{
+  "id": "glodap-insitu-carbon",
+  "title": "GLODAP In-Situ Ocean Carbon Observations",
+  "abstract": "In-situ discrete biogeochemical/carbon observations (e.g. chlorophyll, carbon parameters) from research vessels and platforms, distributed via the Copernicus Marine Service GLODAP in-situ product.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "ocean carbon",
+    "biogeochemistry",
+    "in-situ observations"
+  ],
+  "keywords": [
+    "GLODAP",
+    "Copernicus Marine Service",
+    "CMEMS",
+    "ocean carbon",
+    "chlorophyll"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [],
+    "resolution": "point observations",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2016",
+    "end": "2026",
+    "frequency": "irregular",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "GLODAP discrete observations extract",
+      "format": "CSV",
+      "path": "KAUST - DATA/cmems_obs-ins_glo_bgc-car_my_glodap-obs_irr_1777219077278.csv",
+      "size": "544 KB",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "parameter",
+          "label": "Measured Parameter",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Which biogeochemical parameter this row measures (e.g. CPHL for chlorophyll).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "value",
+          "label": "Measured Value",
+          "type": "float",
+          "unit": "parameter-specific",
+          "description": "Measured value of the parameter at the given time/location/depth.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "depth",
+          "label": "Depth",
+          "type": "float",
+          "unit": "meters",
+          "description": "Sample depth below sea surface.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "valueQc",
+          "label": "Value Quality Flag",
+          "type": "integer",
+          "unit": "QC code",
+          "description": "Quality control flag for the measured value.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Copernicus Marine Service (mirrored internally by KAUST)",
+      "email": ""
+    },
+    "how_to_request": "Publicly downloadable from https://marine.copernicus.eu/ (product INSITU_GLO_BGC_CARBON_DISCRETE_MY_013_050)."
+  },
+  "provenance": {
+    "originator": "EU Copernicus Marine Service / GLODAP",
+    "license": "Copernicus Marine Service open license",
+    "citation": "EU Copernicus Marine Service Information. INSITU_GLO_BGC_CARBON_DISCRETE_MY_013_050.",
+    "doi": null,
+    "source_url": "https://marine.copernicus.eu/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Global extract, not pre-filtered to Red Sea observations — needs spatial filtering to confirm how many observations actually fall within the basin."
+    ],
+    "last_verified": "2026-04-22"
+  },
+  "used_in": []
+}

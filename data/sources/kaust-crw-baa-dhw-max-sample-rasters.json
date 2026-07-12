@@ -1,0 +1,120 @@
+{
+  "id": "kaust-crw-baa-dhw-max-sample-rasters",
+  "title": "NOAA Coral Reef Watch 5km BAA-max & DHW-max Sample Monthly Rasters",
+  "abstract": "Two standalone monthly NOAA Coral Reef Watch (CRW) 5km satellite coral bleaching heat stress rasters found loose in the Environmental folder root: a Bleaching Alert Area maximum (BAA-max) composite for April 1985 and a Degree Heating Week maximum (DHW-max) composite for January 2023. These appear to be single-month sample/test downloads of the standard CRW v3.1 product suite rather than a continuous archived time series.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "thermal stress",
+    "degree heating weeks",
+    "bleaching alert",
+    "remote sensing"
+  ],
+  "keywords": [
+    "CRW",
+    "NOAA",
+    "DHW",
+    "BAA",
+    "coral bleaching",
+    "thermal stress",
+    "satellite",
+    "5km"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "5 km"
+  },
+  "temporal": {
+    "start": "1985-04",
+    "end": "2023-01",
+    "frequency": "irregular",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Bleaching Alert Area max, April 1985",
+      "format": "NetCDF",
+      "path": "KAUST - DATA/Environmental/ct5km_baa-max_v3.1_198504.nc",
+      "size": "1.9 MB",
+      "n_rows": 1,
+      "variables": [
+        {
+          "name": "bleaching_alert_area",
+          "label": "Bleaching Alert Area (max)",
+          "type": "float",
+          "unit": "category (0-4 alert level)",
+          "description": "Monthly maximum Bleaching Alert Area value from the NOAA CRW v3.1 global 5km product suite, indicating peak coral bleaching heat stress alert level for the month.",
+          "missing_values": [
+            "NaN",
+            "-999"
+          ],
+          "maps_to": [
+            "ecological:coral_bleaching_alert"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Degree Heating Week max, January 2023",
+      "format": "NetCDF",
+      "path": "KAUST - DATA/Environmental/ct5km_dhw-max_v3.1_202301.nc",
+      "size": "4.6 MB",
+      "n_rows": 1,
+      "variables": [
+        {
+          "name": "degree_heating_week",
+          "label": "Degree Heating Week (max)",
+          "type": "float",
+          "unit": "degC-weeks",
+          "description": "Monthly maximum Degree Heating Week value from the NOAA CRW v3.1 global 5km product suite, accumulated thermal stress over a trailing 12-week window.",
+          "missing_values": [
+            "NaN",
+            "-999"
+          ],
+          "maps_to": [
+            "ecological:coral_bleaching_alert"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Unassigned - KAUST Red Sea Data Team",
+      "email": "redsea-data@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly downloadable from NOAA Coral Reef Watch (coralreefwatch.noaa.gov); no approval needed."
+  },
+  "provenance": {
+    "originator": "NOAA Coral Reef Watch",
+    "license": "Public domain (US Government work)",
+    "citation": "NOAA Coral Reef Watch. 2026. CoralTemp Version 3.1, Daily Global 5km Satellite Coral Bleaching Heat Stress Monitoring Products.",
+    "doi": null,
+    "source_url": "https://coralreefwatch.noaa.gov/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Global (not Red-Sea-clipped) rasters; bbox recorded as global extent since no Red-Sea-specific subsetting was evident in the filename or found alongside it.",
+      "Only two isolated months present (1985-04 and 2023-01), not a continuous series - likely sample/test downloads rather than a maintained archive.",
+      "Variable names (bleaching_alert_area, degree_heating_week) inferred from standard CRW filename conventions ('baa-max', 'dhw-max'), not verified by opening the files."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

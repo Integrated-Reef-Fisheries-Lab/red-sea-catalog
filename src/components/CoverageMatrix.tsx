@@ -12,11 +12,12 @@ interface Column {
 // Add a column whenever a new domain/theme combination should be tracked.
 const COLUMNS: Column[] = [
   { key: 'env-sst', label: 'Environmental — SST', domain: 'environmental', theme: 'SST' },
+  { key: 'env-chl', label: 'Environmental — Chlorophyll', domain: 'environmental', theme: 'chlorophyll-a' },
   { key: 'eco-coral', label: 'Ecological — Coral Cover', domain: 'ecological', theme: 'coral cover' },
   { key: 'eco-fish', label: 'Ecological — Reef Fish', domain: 'ecological', theme: 'reef fish' },
-  { key: 'prod-landings', label: 'Production — Fish Landings', domain: 'production', theme: 'fish landings' },
+  { key: 'prod-catch', label: 'Production — Fisheries Catch', domain: 'production', theme: 'fisheries catch reconstruction' },
   { key: 'nutri-consumption', label: 'Nutrition — Seafood Consumption', domain: 'nutrition-health', theme: 'seafood consumption' },
-  { key: 'socio-livelihoods', label: 'Socio-economic — Fisher Livelihoods', domain: 'socio-economic', theme: 'fisher livelihoods' },
+  { key: 'socio-pop', label: 'Socio-economic — Population Density', domain: 'socio-economic', theme: 'population density' },
 ];
 
 function bestStatusFor(sources: Source[], subbasin: Subbasin, column: Column): QualityStatus | null {

@@ -1,0 +1,173 @@
+{
+  "id": "sakmeo-fish-visual-census-2014-2023",
+  "title": "SAKMEO Reef Fish Visual Census Transect Data (2014-2023)",
+  "abstract": "Belt-transect fish visual census records collected by SAKMEO field teams across Saudi Red Sea reef sites, spanning Farasan Islands in the south to sites near Jeddah/Thuwal in the central basin. Each row is a species/size-class observation on a transect (3x20 m or similar), with taxonomy (family/genus/species), size-class bins, counts, and derived biomass fields (total biomass per transect, biomass per m2, tonnes per hectare). Exported as a single flat worksheet from an internal KAUST-Aramco Phase II fish-data workbook (source path recorded in the file's embedded SharePoint metadata: '.../ARAMCO/PHASE II/Datasets/Fish data/').",
+  "domain": [
+    "ecological"
+  ],
+  "themes": [
+    "reef fish",
+    "visual census",
+    "biomass",
+    "SAKMEO",
+    "transect survey"
+  ],
+  "keywords": [
+    "fish survey",
+    "belt transect",
+    "biomass",
+    "Farasan",
+    "SAKMEO",
+    "coral reef fish"
+  ],
+  "spatial": {
+    "bbox": [
+      39,
+      16.5,
+      42.6,
+      21.3
+    ],
+    "subbasins": [
+      "farasan",
+      "southern",
+      "central"
+    ],
+    "resolution": "site-level (transect)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2014-09",
+    "end": "2023-10",
+    "frequency": "irregular",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Fish Survey Data SAKMEO (flat worksheet)",
+      "format": "XLSX",
+      "path": "KAUST - DATA/Ecological/Fish Survey Data SAKMEO _DC Sep2025.xlsx",
+      "size": "6.5 MB",
+      "n_rows": 28287,
+      "variables": [
+        {
+          "name": "Date",
+          "label": "Survey Date",
+          "type": "date",
+          "unit": "n/a",
+          "description": "Date of transect survey (Excel serial date in source file, min observed 2014-09-25, max observed 2023-10-04).",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Site",
+          "label": "Site Name",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Named reef monitoring site (e.g. Al Awaltain, FSI13).",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Latitude",
+          "label": "Latitude",
+          "type": "float",
+          "unit": "decimal degrees",
+          "description": "Site latitude, WGS84.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Longitude",
+          "label": "Longitude",
+          "type": "float",
+          "unit": "decimal degrees",
+          "description": "Site longitude, WGS84.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Species",
+          "label": "Species",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Fish species identified on transect (family/genus/species fields also present).",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Count Total",
+          "label": "Individual Count",
+          "type": "integer",
+          "unit": "count",
+          "description": "Number of individuals recorded per size class per transect.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Biomass total per transect",
+          "label": "Transect Biomass",
+          "type": "float",
+          "unit": "g (inferred)",
+          "description": "Derived biomass total per transect from length-weight conversion; unit not explicitly labeled in source and should be verified.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Tonnes per hectare",
+          "label": "Biomass Density",
+          "type": "float",
+          "unit": "t/ha",
+          "description": "Derived standing biomass density.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": [
+            "production:fish_landings_gastat"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "SAKMEO Data Coordinator",
+      "email": "sakmeo@kaust.edu.sa"
+    },
+    "how_to_request": "Not independently verified; file is an internal Aramco-KAUST Phase II fish-data export. Assumed to require the same SAKMEO data-sharing agreement as other SAKMEO products pending confirmation with the data steward."
+  },
+  "provenance": {
+    "originator": "Saudi Aramco-KAUST Marine Environmental Observatory (SAKMEO)",
+    "license": null,
+    "citation": null,
+    "doi": null,
+    "source_url": null,
+    "derived_from": []
+  },
+  "quality": {
+    "status": "cleaned",
+    "known_issues": [
+      "Read via raw XLSX XML parsing (no spreadsheet library available in this environment); column headers and value ranges were sampled, not exhaustively validated -- verify against the actual workbook before publishing.",
+      "Biomass unit not explicitly labeled in the source header row; assumed but not confirmed.",
+      "Steward name/email fabricated as a placeholder pending confirmation with SAKMEO -- replace before publishing.",
+      "File naming ('_DC Sep2025') suggests a September 2025 data-compilation/export date rather than a survey date; unclear if this is the authoritative/latest version or an intermediate extract.",
+      "Relationship to 'RedSeaCombinedSurveyData.xlsx' (does this supersede it, overlap with it, or cover a disjoint set of sites/years?) is not established."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

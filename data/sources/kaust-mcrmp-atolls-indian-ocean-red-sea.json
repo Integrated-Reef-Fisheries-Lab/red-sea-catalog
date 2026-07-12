@@ -1,0 +1,130 @@
+{
+  "id": "kaust-mcrmp-atolls-indian-ocean-red-sea",
+  "title": "Atolls of the Indian Ocean and Red Sea - Geomorphological Vector Data (MCRMP)",
+  "abstract": "Shapefile-based geomorphological maps of coral reef atolls across the Indian Ocean and Red Sea region, from the Millennium Coral Reef Mapping Project (MCRMP), created by photo-interpretation of Landsat 7/8 imagery (Andrefouet, 2023). Distributed as per-region zipped shapefile bundles; only the Sudan bundle falls within the Red Sea bounding box, the remainder (BIOT/Chagos, Lakshadweep, Maldives, Seychelles) cover other Indian Ocean atoll systems but are archived together in this KAUST folder.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "coral reef geomorphology",
+    "atolls",
+    "GIS",
+    "remote sensing"
+  ],
+  "keywords": [
+    "MCRMP",
+    "atolls",
+    "coral reef mapping",
+    "Landsat",
+    "shapefile",
+    "geomorphology",
+    "Andrefouet"
+  ],
+  "spatial": {
+    "bbox": [
+      32.5,
+      12.5,
+      73.5,
+      29.5
+    ],
+    "subbasins": [
+      "southern"
+    ],
+    "resolution": "vector (Landsat 7/8 photo-interpretation scale)"
+  },
+  "temporal": {
+    "start": "2001",
+    "end": "2007",
+    "frequency": "once",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Sudan atoll shapefiles",
+      "format": "Zipped Shapefile",
+      "path": "KAUST - DATA/Environmental/Secondary/ATOLL/Indian_Ocean_Red_Sea/Sudan-2-ok.zip",
+      "size": "12.5 KB",
+      "n_rows": 2,
+      "variables": [
+        {
+          "name": "geomorph_class",
+          "label": "Geomorphological classification (5-level hierarchy)",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Hierarchical geomorphological classification attributes (Level 1-5), plus LAND and REEF binary attributes, per mapped polygon. Field-level detail not verified - shapefile attribute table was not opened.",
+          "missing_values": [],
+          "maps_to": [
+            "ecological:reef_geomorphology"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BIOT (Chagos) atoll shapefiles",
+      "format": "Zipped Shapefile",
+      "path": "KAUST - DATA/Environmental/Secondary/ATOLL/Indian_Ocean_Red_Sea/BIOT-10.zip",
+      "size": "2.9 MB",
+      "n_rows": 10,
+      "variables": []
+    },
+    {
+      "name": "Lakshadweep atoll shapefiles",
+      "format": "Zipped Shapefile",
+      "path": "KAUST - DATA/Environmental/Secondary/ATOLL/Indian_Ocean_Red_Sea/Lakshadweep-8.zip",
+      "size": "447.4 KB",
+      "n_rows": 8,
+      "variables": []
+    },
+    {
+      "name": "Maldives atoll shapefiles",
+      "format": "Zipped Shapefile",
+      "path": "KAUST - DATA/Environmental/Secondary/ATOLL/Indian_Ocean_Red_Sea/Maldives-23-ok.zip",
+      "size": "9.6 MB",
+      "n_rows": 23,
+      "variables": []
+    },
+    {
+      "name": "Seychelles atoll shapefiles",
+      "format": "Zipped Shapefile",
+      "path": "KAUST - DATA/Environmental/Secondary/ATOLL/Indian_Ocean_Red_Sea/Seychelles-9.zip",
+      "size": "1.7 MB",
+      "n_rows": 9,
+      "variables": []
+    },
+    {
+      "name": "Dataset readme",
+      "format": "Text",
+      "path": "KAUST - DATA/Environmental/Secondary/ATOLL/Indian_Ocean_Red_Sea/Andrefouet_2023_dataset_readme.txt",
+      "size": "1.8 KB",
+      "n_rows": 0,
+      "variables": []
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Unassigned - KAUST Red Sea Data Team",
+      "email": "redsea-data@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly downloadable from DataSuds (IRD) via the dataset DOI; no approval needed."
+  },
+  "provenance": {
+    "originator": "Serge Andrefouet / IRD (Millennium Coral Reef Mapping Project), funded by NASA and IRD",
+    "license": "Open data (DataSuds/IRD repository terms - not independently verified)",
+    "citation": "Andrefouet Serge, 2023, \"Atolls of Indian Ocean and Red Sea: geospatial vector data (MCRMP project)\", DataSuds.",
+    "doi": "10.23708/OCEC0S",
+    "source_url": "https://doi.org/10.23708/OCEC0S",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "n_rows values are the polygon/tile counts embedded in each zip filename (e.g. 'Sudan-2' = 2), not verified by opening the shapefiles.",
+      "Dataset spatial extent is much larger than the Red Sea catalog bbox (includes Chagos/BIOT, Lakshadweep, Maldives, Seychelles); bbox widened to roughly span from the Red Sea to the western Indian Ocean rather than clipped to Red Sea only, since all files are bundled as one MCRMP release.",
+      "Only the Sudan-2-ok.zip resource is directly relevant to the Red Sea subbasins; other regional resources included for archival completeness because they ship together in the KAUST folder.",
+      "Temporal range (2001-2007) taken from the readme's funding period description, not from shapefile metadata."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

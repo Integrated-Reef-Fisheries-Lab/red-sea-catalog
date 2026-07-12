@@ -1,0 +1,91 @@
+{
+  "id": "cmems-insitu-chl-turbidity-global",
+  "title": "Global In-Situ Chlorophyll & Turbidity Observations (Near-Real-Time)",
+  "abstract": "Global near-real-time in-situ chlorophyll and turbidity (CPHL-TUR4) observations from autonomous platforms (floats, buoys), distributed via Copernicus Marine Service, covering the 2020-2021 period.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "chlorophyll-a",
+    "turbidity",
+    "in-situ observations"
+  ],
+  "keywords": [
+    "Copernicus Marine Service",
+    "CMEMS",
+    "chlorophyll",
+    "turbidity",
+    "in-situ"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -78.74,
+      180,
+      90
+    ],
+    "subbasins": [],
+    "resolution": "point observations",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2020-01",
+    "end": "2021-01",
+    "frequency": "irregular",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Global CPHL-TUR4 in-situ observations",
+      "format": "CSV",
+      "path": "KAUST - DATA/cmems_obs-ins_glo_phybgcwav_mynrt_na_irr_CPHL-TUR4_180.00W-180.00E_78.74S-90.00N_12000.00-9999.00m_2020-01-01-2021-01-01.csv",
+      "size": "16.4 GB",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "CPHL",
+          "label": "Chlorophyll",
+          "type": "float",
+          "unit": "mg/m3",
+          "description": "In-situ chlorophyll observation from an autonomous platform.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "TUR4",
+          "label": "Turbidity",
+          "type": "float",
+          "unit": "NTU",
+          "description": "In-situ turbidity observation.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Copernicus Marine Service (mirrored internally by KAUST)",
+      "email": ""
+    },
+    "how_to_request": "Publicly downloadable from https://marine.copernicus.eu/ (INSITU_GLO_PHYBGCWAV_DISCRETE_MYNRT_013_030 product family)."
+  },
+  "provenance": {
+    "originator": "EU Copernicus Marine Service",
+    "license": "Copernicus Marine Service open license",
+    "citation": "EU Copernicus Marine Service Information. INSITU_GLO_PHYBGCWAV_DISCRETE_MYNRT_013_030.",
+    "doi": null,
+    "source_url": "https://marine.copernicus.eu/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Global, not filtered to Red Sea — needs spatial subsetting to identify observations relevant to the basin.",
+      "Very large single file (16.4 GB) — likely needs chunked/streamed processing rather than a full in-memory load."
+    ],
+    "last_verified": "2026-04-22"
+  },
+  "used_in": []
+}

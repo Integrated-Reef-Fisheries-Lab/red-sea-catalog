@@ -1,0 +1,110 @@
+{
+  "id": "who-gho-under5-mortality-rate",
+  "title": "WHO Global Health Observatory — Under-Five Mortality Rate (All Countries, 1950-Present)",
+  "abstract": "WHO Global Health Observatory (GHO) export of the under-five mortality rate indicator (MDG_0000000007: probability of dying by age 5, per 1,000 live births), by country, sex, and year, for all UN member states from 1950 to the most recent estimate year, with upper/lower 95% uncertainty bounds.",
+  "domain": [
+    "nutrition-health"
+  ],
+  "themes": [
+    "child mortality",
+    "national statistics",
+    "health outcomes"
+  ],
+  "keywords": [
+    "WHO",
+    "Global Health Observatory",
+    "under-5 mortality",
+    "child mortality",
+    "MDG"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      28.8
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1950",
+    "end": "2026",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Under-five mortality rate, all countries (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Human Nutrition and Health/2322814_ALL_LATEST.csv",
+      "size": "10.7 MB",
+      "n_rows": 60562,
+      "variables": [
+        {
+          "name": "RATE_PER_1000_N",
+          "label": "Under-Five Mortality Rate",
+          "type": "float",
+          "unit": "deaths per 1,000 live births",
+          "description": "Probability of dying by age 5, per 1,000 live births, with RATE_PER_1000_NL / RATE_PER_1000_NU giving the 95% uncertainty interval lower/upper bounds.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "GEO_NAME_SHORT",
+          "label": "Country/Area Name",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Country or area name; DIM_GEO_CODE_M49 gives the corresponding UN M49 numeric geo code.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "DIM_SEX",
+          "label": "Sex",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Sex stratum: TOTAL, MALE, or FEMALE.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Human Nutrition and Health Data Team",
+      "email": "nutrition-health-data@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly available via the WHO Global Health Observatory OData/data export API; no request required."
+  },
+  "provenance": {
+    "originator": "World Health Organization (WHO) Global Health Observatory / UN Inter-agency Group for Child Mortality Estimation",
+    "license": "WHO open data terms",
+    "citation": "World Health Organization. Global Health Observatory: Under-five mortality rate (MDG_0000000007).",
+    "doi": null,
+    "source_url": "https://www.who.int/data/gho",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Filename (2322814_ALL_LATEST.csv) is a raw GHO export identifier; indicator identity (under-five mortality rate, code MDG_0000000007) was inferred from the IND_NAME/IND_CODE columns during cataloging and was not independently cross-checked against the live WHO GHO catalog.",
+      "Global, all-country dataset with only a single indicator; only the Saudi Arabia rows (M49 code 682) are relevant to this catalog's Red Sea scope, but the full global file is retained locally.",
+      "Included as a health-outcome indicator plausibly linked to nutritional status (as referenced by the team's aspirational SEDAC/infant-mortality entry in Sources - NH.Rmd), not a direct nutrition or seafood-consumption measure.",
+      "No sub-national spatial detail; national Saudi Arabia figures applied uniformly across all five subbasins."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

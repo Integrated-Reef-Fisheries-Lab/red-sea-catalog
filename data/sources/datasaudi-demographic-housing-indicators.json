@@ -1,0 +1,169 @@
+{
+  "id": "datasaudi-demographic-housing-indicators",
+  "title": "Data Saudi — Provincial Demographic and Housing Indicators",
+  "abstract": "Province-level demographic and housing indicators for Saudi Arabia sourced from the Data Saudi open data portal (GASTAT-derived), covering household size, housing type, dwelling counts, population density, and population growth by province and year.",
+  "domain": [
+    "socio-economic"
+  ],
+  "themes": [
+    "demographics",
+    "housing",
+    "household size",
+    "population growth",
+    "provincial statistics"
+  ],
+  "keywords": [
+    "Data Saudi",
+    "GASTAT",
+    "household size",
+    "housing type",
+    "dwellings",
+    "population density",
+    "population growth"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      55.7,
+      32.2
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "province-level",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2010",
+    "end": "2022",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Household size by province and nationality (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_household_size_2026-03-23T11_49_49.360Z.csv",
+      "size": "1.4 KB",
+      "n_rows": 42,
+      "variables": [
+        {
+          "name": "average_household_size",
+          "label": "Average Household Size",
+          "type": "float",
+          "unit": "persons/household",
+          "description": "Average household size by province, nationality (Saudi/Non-Saudi), and year.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Housing type by province (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_housing_type_2026-03-23T11_50_54.443Z.csv",
+      "size": "15.9 KB",
+      "n_rows": 361,
+      "variables": [
+        {
+          "name": "housing_units",
+          "label": "Housing Units",
+          "type": "float",
+          "unit": "count",
+          "description": "Number of housing units by province, housing type (traditional house, apartment, villa, etc.), and year.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Dwellings by province and type (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/dwellings_2026-03-23T11_52_15.921Z.csv",
+      "size": "2.5 KB",
+      "n_rows": 65,
+      "variables": [
+        {
+          "name": "number_of_dwellings",
+          "label": "Number of Dwellings",
+          "type": "float",
+          "unit": "count",
+          "description": "Number of dwellings by dwelling type (e.g. residential) and province for the reporting year.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Population density by province (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_population_density_region_2026-03-23T11_54_09.000Z.csv",
+      "size": "6.3 KB",
+      "n_rows": 182,
+      "variables": [
+        {
+          "name": "population_density_region",
+          "label": "Population Density",
+          "type": "float",
+          "unit": "persons/km2",
+          "description": "Reported population density by province (and Kingdom-wide total) and year.",
+          "missing_values": [],
+          "maps_to": [
+            "socio-economic:population_density"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Population growth by province (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_population_growth_2026-03-23T11_54_13.722Z.csv",
+      "size": "3.8 KB",
+      "n_rows": 168,
+      "variables": [
+        {
+          "name": "population_growth",
+          "label": "Population Growth Rate",
+          "type": "float",
+          "unit": "% per year",
+          "description": "Year-over-year population growth rate by province.",
+          "missing_values": [],
+          "maps_to": [
+            "socio-economic:population_density"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "General Authority for Statistics (GASTAT), Saudi Arabia",
+      "email": "info@stats.gov.sa"
+    },
+    "how_to_request": "Published openly on the Data Saudi portal (https://datasaudi.sa/en), sourced from GASTAT; no request required."
+  },
+  "provenance": {
+    "originator": "General Authority for Statistics (GASTAT), Saudi Arabia, via Data Saudi portal",
+    "license": "Saudi Open Data License",
+    "citation": null,
+    "doi": null,
+    "source_url": "https://datasaudi.sa/en",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Downloaded as five separate export files from the Data Saudi portal (filenames carry export timestamps of 2026-03-23), not a single curated dataset.",
+      "Province-level only; not disaggregated to Red Sea coastal cities/governorates.",
+      "No formal citation string could be confirmed for the Data Saudi portal exports, so citation is left null."
+    ],
+    "last_verified": "2026-03-23"
+  },
+  "used_in": []
+}

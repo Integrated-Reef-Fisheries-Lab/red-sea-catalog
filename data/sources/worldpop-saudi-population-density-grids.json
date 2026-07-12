@@ -1,0 +1,97 @@
+{
+  "id": "worldpop-saudi-population-density-grids",
+  "title": "WorldPop Saudi Arabia Gridded Population Density, 2000-2020",
+  "abstract": "Annual 1 km resolution gridded population density rasters for Saudi Arabia (2000-2020), following WorldPop naming and grid conventions. Provides a spatially explicit, country-wide view of population distribution that can be clipped to Red Sea coastal governorates for human-pressure and coastal-development analyses.",
+  "domain": [
+    "socio-economic"
+  ],
+  "themes": [
+    "population density",
+    "gridded demographics",
+    "coastal population",
+    "settlement pressure"
+  ],
+  "keywords": [
+    "WorldPop",
+    "population density",
+    "gridded population",
+    "Saudi Arabia",
+    "raster",
+    "1km"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      55.7,
+      32.2
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "1 km grid",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2000",
+    "end": "2020",
+    "frequency": "annual",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Annual population density grids, Saudi Arabia (GeoTIFF, 21 files)",
+      "format": "GeoTIFF",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/Population Density/sau_pd_{YYYY}_1km.tif",
+      "size": "202 MB (total, 21 files, ~9.6-10 MB each)",
+      "n_rows": 21,
+      "variables": [
+        {
+          "name": "population_density",
+          "label": "Population Density",
+          "type": "float",
+          "unit": "persons/km2",
+          "description": "Estimated number of people per square kilometer per 1km grid cell, one raster layer per year from 2000 to 2020.",
+          "missing_values": [
+            "NoData"
+          ],
+          "maps_to": [
+            "socio-economic:population_growth",
+            "socio-economic:population_density_region"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "WorldPop Research Group, University of Southampton",
+      "email": "info@worldpop.org"
+    },
+    "how_to_request": "Freely downloadable from https://www.worldpop.org/ under open license; no request required."
+  },
+  "provenance": {
+    "originator": "WorldPop, School of Geography and Environmental Science, University of Southampton",
+    "license": "CC BY 4.0",
+    "citation": "WorldPop (www.worldpop.org). Saudi Arabia population density grids, 1km resolution, 2000-2020.",
+    "doi": null,
+    "source_url": "https://www.worldpop.org/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "File naming (sau_pd_{year}_1km.tif) and directory context strongly match WorldPop's population density product, but the exact WorldPop sub-product (constrained vs. unconstrained, UN-adjusted vs. not) could not be confirmed from the files alone — original download provenance/README not present in the folder.",
+      "Coverage is all of Saudi Arabia, not clipped to Red Sea coastal governorates; no Red-Sea-specific subsetting has been performed.",
+      "No data for 2021-2024 (Rmd registry entry marks WorldPop as [Previous]/already acquired, but the local archive stops at 2020).",
+      "Exact citation DOI not confirmed for this specific product/vintage, so left null rather than guessed."
+    ],
+    "last_verified": "2026-03-28"
+  },
+  "used_in": []
+}

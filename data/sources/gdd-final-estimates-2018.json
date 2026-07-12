@@ -1,0 +1,149 @@
+{
+  "id": "gdd-final-estimates-2018",
+  "title": "Global Dietary Database (GDD) 2018 Final Estimates — Country-Level Dietary & Nutrient Intake (incl. Seafood)",
+  "abstract": "Modeled, survey-derived estimates of habitual dietary intake for 46+ foods, beverages, and nutrients, disaggregated by country, age, sex, urbanicity, and education level. The local archive contains the full country-level, global, and regional estimate releases (one CSV per dietary factor, e.g. v11 = Total seafoods, v30 = Seafood omega-3 (n-3) fat), plus the official codebook. For the Red Sea nutrition-health domain, the seafood intake (v11) and seafood omega-3 fat (v30) variables for Saudi Arabia (ISO3 SAU) are the primary variables of interest, but the archive includes all other GDD dietary factors as well.",
+  "domain": [
+    "nutrition-health"
+  ],
+  "themes": [
+    "dietary intake",
+    "seafood consumption",
+    "omega-3 fatty acids",
+    "nutrient intake modeling",
+    "national estimates"
+  ],
+  "keywords": [
+    "Global Dietary Database",
+    "GDD",
+    "Tufts University",
+    "seafood",
+    "omega-3",
+    "diet",
+    "nutrient intake",
+    "Saudi Arabia"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      28.8
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1990",
+    "end": "2018",
+    "frequency": "irregular",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Total seafoods intake, country-level estimates (v11_cnty.csv)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Human Nutrition and Health/GDD_FinalEstimates_01102022/Country-level estimates/v11_cnty.csv",
+      "size": "142.7 MB",
+      "n_rows": 1072260,
+      "variables": [
+        {
+          "name": "median",
+          "label": "Total Seafood Intake (median)",
+          "type": "float",
+          "unit": "grams per day",
+          "description": "Modeled median habitual daily intake of total seafoods for the given country/age/sex/urbanicity/education/year stratum, with 95% uncertainty interval in upperci_95/lowerci_95.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": [
+            "production:landings_tonnes"
+          ]
+        },
+        {
+          "name": "serving",
+          "label": "Total Seafood Intake (servings)",
+          "type": "float",
+          "unit": "servings per day",
+          "description": "Modeled median habitual daily intake of total seafoods expressed in standardized servings, with s_lowerci_95/s_upperci_95 uncertainty bounds.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "iso3",
+          "label": "Country ISO3 Code",
+          "type": "string",
+          "unit": "categorical",
+          "description": "ISO3 country code; Saudi Arabia is 'SAU'.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Seafood omega-3 (n-3) fat intake, country-level estimates (v30_cnty.csv)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Human Nutrition and Health/GDD_FinalEstimates_01102022/Country-level estimates/v30_cnty.csv",
+      "size": "108.2 MB",
+      "n_rows": 1072260,
+      "variables": [
+        {
+          "name": "median",
+          "label": "Seafood Omega-3 Fat Intake (median)",
+          "type": "float",
+          "unit": "milligrams (mg) per day",
+          "description": "Modeled median habitual daily intake of omega-3 (n-3) fatty acids derived specifically from seafood, with 95% uncertainty interval.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": [
+            "nutrition-health:omega3_intake_mg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GDD 2018 Codebook",
+      "format": "XLSX",
+      "path": "KAUST - DATA/Human Nutrition and Health/GDD_FinalEstimates_01102022/GDD 2018 Codebook_Jan 10 2022.xlsx",
+      "size": "340 KB",
+      "n_rows": 0,
+      "variables": []
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Human Nutrition and Health Data Team",
+      "email": "nutrition-health-data@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly available from the Global Dietary Database (globaldietarydatabase.org) after free registration and acceptance of the GDD data use terms; no restriction on redistribution of derived summary statistics."
+  },
+  "provenance": {
+    "originator": "Global Dietary Database (GDD), Tufts University Friedman School of Nutrition Science and Policy",
+    "license": "GDD Data Use Agreement (free registration required)",
+    "citation": "Global Dietary Database (GDD). GDD 2018 Final Estimates, released January 2022. Boston, MA: Tufts University Friedman School of Nutrition Science and Policy.",
+    "doi": null,
+    "source_url": "https://www.globaldietarydatabase.org/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [
+      "Estimates are model-based (survey-calibrated Bayesian hierarchical models), not direct measurements; country-level values for Saudi Arabia may rely partly on regional/superregion borrowing of strength where local survey data are sparse.",
+      "No sub-national or Red-Sea-specific spatial resolution is available; all values are national aggregates for Saudi Arabia, applied uniformly across all five subbasins.",
+      "The local archive contains ~46 additional dietary-factor CSVs per estimate level (Country-level/Global/Regional) beyond the two seafood-related variables itemized here (e.g. fruits, vegetables, meats, dairy, energy, macro/micronutrients); only v11 (Total seafoods) and v30 (Seafood omega-3 fat) are cataloged as resources given the domain focus, but the full folder is present locally.",
+      "This source was tagged '[New]' (aspirational, not yet acquired) in the team's Sources - NH.Rmd registry, but the full dataset (~5.7 GB) is already present locally — the Rmd tag appears stale relative to actual holdings."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

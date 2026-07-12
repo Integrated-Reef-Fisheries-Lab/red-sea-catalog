@@ -1,0 +1,151 @@
+{
+  "id": "artis-attribute-tables",
+  "title": "ARTIS Attribute & Reference Tables — Taxonomy, Products, Countries, Population",
+  "abstract": "Supporting lookup/reference tables for joining with the ARTIS trade and consumption datasets: taxonomic hierarchy and common names by scientific name (sciname.csv), minimum taxonomic resolution per HS-code/species combination (code_max_resolved.csv), product descriptions and forms by HS6 code (products.csv), country regional groupings (countries.csv), and standardized national population figures for per-capita calculations (standardized_fao_pop.csv).",
+  "domain": [
+    "production"
+  ],
+  "themes": [
+    "reference data",
+    "taxonomy",
+    "product classification",
+    "population"
+  ],
+  "keywords": [
+    "ARTIS",
+    "taxonomy",
+    "HS6",
+    "country groupings",
+    "population"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national / non-spatial reference tables",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1996",
+    "end": "2020",
+    "frequency": "irregular",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Scientific name taxonomy (sciname.csv)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Production/Trade/attribute_tables.zip#attribute tables/sciname.csv",
+      "size": "490 KB",
+      "n_rows": 6000,
+      "variables": [
+        {
+          "name": "sciname",
+          "label": "Scientific Name",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Scientific name (species, genus, family, etc.) appearing in ARTIS; join key for trade/consumption files.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Code-to-taxon resolution table (code_max_resolved.csv)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Production/Trade/attribute_tables.zip#attribute tables/code_max_resolved.csv",
+      "size": "16.4 MB",
+      "n_rows": 430000,
+      "variables": [
+        {
+          "name": "hs_version",
+          "label": "HS Classification Version",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Harmonized System revision.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "hs6",
+          "label": "HS6 Code",
+          "type": "string",
+          "unit": "n/a",
+          "description": "6-digit Harmonized System product code.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "sciname",
+          "label": "Scientific Name",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Scientific name for the code-sciname combination.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Product descriptions (products.csv)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Production/Trade/attribute_tables.zip#attribute tables/products.csv",
+      "size": "619 KB",
+      "n_rows": 10500,
+      "variables": []
+    },
+    {
+      "name": "Country regional groupings (countries.csv)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Production/Trade/attribute_tables.zip#attribute tables/countries.csv",
+      "size": "6.9 KB",
+      "n_rows": 250,
+      "variables": []
+    },
+    {
+      "name": "Standardized national population (standardized_fao_pop.csv)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Production/Trade/attribute_tables.zip#attribute tables/standardized_fao_pop.csv",
+      "size": "90 KB",
+      "n_rows": 8000,
+      "variables": []
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Data Inventory Team",
+      "email": "data-inventory@kaust.edu.sa"
+    },
+    "how_to_request": "Bundled with the ARTIS trade/consumption data as reference tables; same access caveats as those sources apply."
+  },
+  "provenance": {
+    "originator": "ARTIS (Aquatic Resource Trade in Species) research consortium",
+    "license": null,
+    "citation": null,
+    "doi": null,
+    "source_url": null,
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Row counts for each embedded CSV are rough estimates derived from file size, not exact — exact counts require extracting the archive.",
+      "The archive's own attributes_README states the team is 'still developing complete metadata' for these tables. Documented join guidance: sciname.csv joins on 'sciname'; code_max_resolved.csv joins on hs_version + hs6 + sciname; products.csv should be de-duplicated after joining since some HS6 codes map to multiple product forms; standardized_fao_pop.csv joins on year + iso3c.",
+      "Same originator/license/DOI verification caveats as the ARTIS trade and consumption datasets.",
+      "ZIP also contains macOS resource-fork artifacts (__MACOSX/ entries)."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

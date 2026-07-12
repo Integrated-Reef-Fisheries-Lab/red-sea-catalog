@@ -1,0 +1,118 @@
+{
+  "id": "gastat-agricultural-statistics-2024",
+  "title": "GASTAT Agricultural Statistics 2024 — Saudi Arabia",
+  "abstract": "Annual national agricultural statistics report published by the General Authority for Statistics (GASTAT), covering crop area/production by administrative region (cereals, open-field and greenhouse vegetables, cut flowers, palm and other perennial trees), agricultural inputs (fertilizer, pesticides), organic agriculture, agricultural loans and bank credit, and land-use indicators. The workbook contains 53 sheets organized into 12 sections plus an index and summary.",
+  "domain": [
+    "production"
+  ],
+  "themes": [
+    "crop production",
+    "land use",
+    "agricultural inputs",
+    "national statistics"
+  ],
+  "keywords": [
+    "GASTAT",
+    "agricultural statistics",
+    "crops",
+    "date palms",
+    "fertilizer",
+    "Saudi Arabia"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      28.8
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national (by administrative region)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2024",
+    "end": "2024",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Agricultural Statistics 2024 (XLSX, 53 sheets)",
+      "format": "XLSX",
+      "path": "KAUST - DATA/Production/Agricultural Statistics 2024  - EN (1).xlsx",
+      "size": "482 KB",
+      "n_rows": 1100,
+      "variables": [
+        {
+          "name": "region",
+          "label": "Administrative Region",
+          "type": "string",
+          "unit": "n/a",
+          "description": "One of Saudi Arabia's 13 administrative regions (Riyadh, Makkah, Madinah, Qassim, Eastern Region, Aseer, Tabuk, Hail, Northern Borders, Jazan, Najran, Al-Baha, Al-Jouf), or a Kingdom total row.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "crop_or_item",
+          "label": "Crop / Commodity",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Crop or commodity name (e.g. wheat, alfalfa, dates, olives), varies by sheet/section.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "harvested_area",
+          "label": "Harvested Area",
+          "type": "float",
+          "unit": "hectares",
+          "description": "Cultivated/harvested area for the crop and region.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "production_quantity",
+          "label": "Production Quantity",
+          "type": "float",
+          "unit": "tonnes",
+          "description": "Reported production quantity for the crop and region.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Data Inventory Team",
+      "email": "data-inventory@kaust.edu.sa"
+    },
+    "how_to_request": "Published openly by GASTAT on the national statistics portal; no request required. Local copy available on request from the KAUST Data Inventory Team."
+  },
+  "provenance": {
+    "originator": "General Authority for Statistics (GASTAT), Saudi Arabia",
+    "license": "Saudi Open Data License",
+    "citation": "General Authority for Statistics (GASTAT). 2024. Agricultural Statistics 2024. Riyadh: GASTAT.",
+    "doi": null,
+    "source_url": "https://www.stats.gov.sa/en/w/agricultural-statistics-2024",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "No fisheries or aquaculture section is present in this workbook despite being catalogued under the Production domain via the KAUST Sources registry — all 12 sections cover crop agriculture (cereals, vegetables, cut flowers, palm/perennial trees), inputs, organic farming, agricultural credit, and land-use indicators. Included here because it appears as a local file referenced by the team's Sources doc; consider re-scoping or excluding from seafood-production analyses.",
+      "n_rows (1,100) is a rough estimate based on typical per-sheet row counts (~20 rows x ~51 data sheets); the workbook was not fully parsed sheet-by-sheet, so the true total is uncertain.",
+      "Only a single edition (2024) is present locally; no historical time series was found for this file."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

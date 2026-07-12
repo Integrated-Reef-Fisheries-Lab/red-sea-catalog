@@ -1,0 +1,99 @@
+{
+  "id": "world-development-indicators-extract",
+  "title": "World Bank World Development Indicators — Saudi Arabia Extract",
+  "abstract": "Extract of World Bank World Development Indicators (WDI) time series for Saudi Arabia, covering economic, trade, and development indicators relevant to coastal and marine-adjacent socio-economic context.",
+  "domain": [
+    "socio-economic"
+  ],
+  "themes": [
+    "economic indicators",
+    "national statistics",
+    "development indicators"
+  ],
+  "keywords": [
+    "World Bank",
+    "WDI",
+    "GDP",
+    "development indicators"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      32.2
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1960",
+    "end": "2025",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "WDI data extract + series metadata",
+      "format": "CSV",
+      "path": "KAUST - DATA/P_Data_Extract_From_World_Development_Indicators.zip (Data.csv, Series - Metadata.csv)",
+      "size": "254 KB",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "series_name",
+          "label": "Indicator Name",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Name of the WDI indicator (e.g. GDP, trade balance, employment in agriculture/fisheries).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "value",
+          "label": "Indicator Value",
+          "type": "float",
+          "unit": "indicator-specific",
+          "description": "Annual value of the indicator for Saudi Arabia.",
+          "missing_values": [
+            ".."
+          ],
+          "maps_to": [
+            "production:landings_tonnes"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "World Bank Group (mirrored internally by KAUST)",
+      "email": ""
+    },
+    "how_to_request": "Publicly downloadable from https://databank.worldbank.org/source/world-development-indicators."
+  },
+  "provenance": {
+    "originator": "World Bank Group",
+    "license": "CC BY 4.0 (World Bank Open Data terms)",
+    "citation": "World Bank. World Development Indicators. World Bank Group.",
+    "doi": null,
+    "source_url": "https://databank.worldbank.org/source/world-development-indicators",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [
+      "Extract not yet filtered to fisheries/marine-relevant indicators specifically — includes broad WDI series."
+    ],
+    "last_verified": "2026-04-26"
+  },
+  "used_in": []
+}

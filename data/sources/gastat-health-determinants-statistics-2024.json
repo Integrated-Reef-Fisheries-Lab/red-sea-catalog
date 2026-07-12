@@ -1,0 +1,105 @@
+{
+  "id": "gastat-health-determinants-statistics-2024",
+  "title": "GASTAT Health Determinants Statistics Publication 2024 (Saudi Arabia)",
+  "abstract": "National tables from GASTAT's Health Determinants Statistics Publication 2024, covering obesity and overweight (BMI) among adults and children, tobacco/e-cigarette consumption and passive smoke exposure, and nutrition statistics including fruit and vegetable consumption frequency, disaggregated by sex, nationality, age group, and administrative region.",
+  "domain": [
+    "nutrition-health"
+  ],
+  "themes": [
+    "obesity",
+    "tobacco use",
+    "fruit and vegetable consumption",
+    "national statistics",
+    "administrative regions"
+  ],
+  "keywords": [
+    "GASTAT",
+    "health determinants",
+    "obesity",
+    "BMI",
+    "nutrition statistics",
+    "Saudi Arabia"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      28.8
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2024",
+    "end": "2024",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Health Determinants Statistics Publication 2024 (XLSX, 25 tables)",
+      "format": "XLSX",
+      "path": "KAUST - DATA/Human Nutrition and Health/Health Determinants Statistics Publication 2024 EN.xlsx",
+      "size": "200.3 KB",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "obesity_prevalence_pct",
+          "label": "Obesity Prevalence",
+          "type": "float",
+          "unit": "percent",
+          "description": "Prevalence of obesity among adults (15+) or children (2-14), by sex, nationality, and age group/administrative region, from the National Health Survey 2024 / Woman and Child Health Survey 2024.",
+          "missing_values": [
+            "-"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "fruit_veg_5plus_servings_pct",
+          "label": "Recommended Fruit & Vegetable Consumption",
+          "type": "float",
+          "unit": "percent",
+          "description": "Percentage of adults consuming the recommended 5+ servings of fruit and vegetables per day, by sex, nationality, and age group/administrative region.",
+          "missing_values": [
+            "-"
+          ],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "GASTAT Health Statistics Unit",
+      "email": "info@stats.gov.sa"
+    },
+    "how_to_request": "Published openly by the General Authority for Statistics (GASTAT) on the Saudi Open Data platform / stats.gov.sa; no request required."
+  },
+  "provenance": {
+    "originator": "General Authority for Statistics (GASTAT), Saudi Arabia",
+    "license": "Saudi Open Data License",
+    "citation": "GASTAT. 2024. Health Determinants Statistics Publication 2024. Riyadh: General Authority for Statistics.",
+    "doi": null,
+    "source_url": "https://www.stats.gov.sa/en/w/Health-Determinants-Statistics-Publication-2024",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Multi-sheet XLSX with 25 tables in wide, human-readable (not tidy) layout; would require reshaping before analysis.",
+      "A near-duplicate file 'Health Determinants Statistics Publication 2024 EN (1).xlsx' (identical file size, 205,054 bytes) also exists in the same folder; only the canonical (non-'(1)') filename is cataloged as the resource — the two should be diffed/deduplicated before archiving.",
+      "No sub-national spatial detail beyond GASTAT's administrative regions, which do not align with Red Sea subbasin boundaries; applied uniformly across all five subbasins."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

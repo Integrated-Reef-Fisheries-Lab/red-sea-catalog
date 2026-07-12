@@ -1,0 +1,139 @@
+{
+  "id": "sakmeo-benthic-transects",
+  "title": "SAKMEO Benthic Photo-Quadrat Cover — Point-Count Transects (2014-2023)",
+  "abstract": "Wide-format benthic cover point-count data from SAKMEO (Saudi Aramco-KAUST Marine Environmental Observatory) photo-quadrat surveys, covering hundreds of transects across reef sites from Duba in the north to Farasan-adjacent sites, surveyed intermittently between 2014 and 2023 (repeat visits at some sites in 2014, 2016, 2017, 2019, and 2023). Each row is a benthic cover category (e.g. hard coral, macroalgae, rubble, sand, debris); each column is one transect (site + year + replicate), with cover values as proportions. A companion Metadata sheet gives per-transect site name, coordinates, region, reef, depth, exposure, and distance-to-shore.",
+  "domain": ["ecological"],
+  "themes": ["coral cover", "benthic community", "photo-quadrat survey", "SAKMEO"],
+  "keywords": ["benthic cover", "coral reef monitoring", "point count", "SAKMEO", "photo quadrat"],
+  "spatial": {
+    "bbox": [34.9, 16.7, 39.3, 27.9],
+    "subbasins": ["northern", "central", "gulf-of-aqaba"],
+    "resolution": "site-level (transect)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2014",
+    "end": "2023",
+    "frequency": "irregular",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Benthic cover point-count matrix (Benthic_cover sheet)",
+      "format": "XLSX (sheet 1 of 2)",
+      "path": "KAUST - DATA/Benthic data_SAKMEO_070925.xlsx",
+      "size": "376 KB",
+      "n_rows": 30,
+      "variables": [
+        {
+          "name": "Category major",
+          "label": "Major Cover Category",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Broad benthic cover group per row (e.g. hard coral, algae, sponge, abiotic).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Category",
+          "label": "Cover Category Code",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Short code for the specific benthic category (e.g. DEBRIS).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "transect_columns",
+          "label": "Per-Transect Cover Fraction",
+          "type": "float",
+          "unit": "fraction 0-1",
+          "description": "One column per transect (named by site code, year, and replicate, e.g. DR12_10m_T1), giving the fraction of points assigned to this category on that transect.",
+          "missing_values": [],
+          "maps_to": ["environmental:sst_anomaly"]
+        }
+      ]
+    },
+    {
+      "name": "Transect metadata (Metadata sheet)",
+      "format": "XLSX (sheet 2 of 2)",
+      "path": "KAUST - DATA/Benthic data_SAKMEO_070925.xlsx",
+      "size": "376 KB",
+      "n_rows": 500,
+      "variables": [
+        {
+          "name": "Label",
+          "label": "Transect Label",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Short transect identifier joining to the column headers in the Benthic_cover sheet.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Lat",
+          "label": "Latitude",
+          "type": "string",
+          "unit": "degrees minutes",
+          "description": "Site latitude in degrees-minutes format (e.g. '27 50.8511'), not decimal degrees.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Long",
+          "label": "Longitude",
+          "type": "string",
+          "unit": "degrees minutes",
+          "description": "Site longitude in degrees-minutes format, not decimal degrees.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Region",
+          "label": "Region Code",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Short region code (e.g. DUB for Duba).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Exposure",
+          "label": "Wave Exposure",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Site exposure category (e.g. protected).",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "SAKMEO Data Coordinator",
+      "email": "sakmeo@kaust.edu.sa"
+    },
+    "how_to_request": "Not independently verified; assumed to require the same SAKMEO data-sharing process as other SAKMEO products pending confirmation with the data steward."
+  },
+  "provenance": {
+    "originator": "Saudi Aramco-KAUST Marine Environmental Observatory (SAKMEO)",
+    "license": null,
+    "citation": null,
+    "doi": null,
+    "source_url": null,
+    "derived_from": []
+  },
+  "quality": {
+    "status": "cleaned",
+    "known_issues": [
+      "Lat/Long recorded in degrees-minutes string format in the Metadata sheet (e.g. '27 50.8511'), not decimal degrees — needs conversion before mapping.",
+      "Transect column headers encode site/year/replicate in an inconsistent ad-hoc naming scheme (e.g. DR12_10m_T1 vs AM Reef_0219_10_1) — a lookup table would help but wasn't found alongside the file.",
+      "Relationship to sakmeo-fish-visual-census-2014-2023 (same observatory, overlapping years, different survey method) is not established — likely companion surveys at some of the same sites.",
+      "n_rows for the Metadata sheet is an approximate count of named transects (~500+ columns observed in Benthic_cover), not an exact row count."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

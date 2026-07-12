@@ -1,0 +1,109 @@
+{
+  "id": "sau-rfmo-gfcm-catch-1950-2019",
+  "title": "Sea Around Us -- Reconstructed Catch Data, GFCM RFMO Area",
+  "abstract": "Sea Around Us (SAU) reconstructed marine fisheries catch data aggregated to the General Fisheries Commission for the Mediterranean (GFCM) Regional Fisheries Management Organization (RFMO) area, 1950-2019. On inspection, this extract's only area_name value is 'GFCM' -- a Mediterranean and Black Sea RFMO -- so despite being stored in the same 'eco reomote' folder as the Red-Sea-specific SAU EEZ/MEOW extracts, its actual coverage is NOT the Red Sea. Included here for completeness per instructions but flagged as likely mis-scoped or downloaded as a broader reference/comparison set rather than a Red-Sea layer.",
+  "domain": [
+    "ecological",
+    "production"
+  ],
+  "themes": [
+    "fisheries catch reconstruction",
+    "RFMO",
+    "Sea Around Us"
+  ],
+  "keywords": [
+    "Sea Around Us",
+    "RFMO",
+    "GFCM",
+    "catch reconstruction",
+    "Mediterranean"
+  ],
+  "spatial": {
+    "bbox": [
+      -6,
+      30,
+      36,
+      46
+    ],
+    "subbasins": [],
+    "resolution": "RFMO-area-level (whole-area aggregate, annual)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1950",
+    "end": "2019",
+    "frequency": "annual",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "SAU RFMO 4 catch data (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Ecological/eco reomote/SAU RFMO 4 v50-1/SAU RFMO 4 v50-1.csv",
+      "size": "241 MB",
+      "n_rows": 1314003,
+      "variables": [
+        {
+          "name": "area_name",
+          "label": "RFMO Name",
+          "type": "string",
+          "unit": "n/a",
+          "description": "RFMO identifier; observed value 'GFCM' (General Fisheries Commission for the Mediterranean) only.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "fishing_entity",
+          "label": "Fishing Entity",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Country/territory attributed with the catch (e.g. Turkey, Albania).",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "tonnes",
+          "label": "Catch",
+          "type": "float",
+          "unit": "tonnes",
+          "description": "Reconstructed catch weight for the row's species/sector/gear/reporting-status combination.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Sea Around Us Project",
+      "email": "info@seaaroundus.org"
+    },
+    "how_to_request": "Freely downloadable from seaaroundus.org; local copy retrieved 2026-03-11 per the bundled readme.txt."
+  },
+  "provenance": {
+    "originator": "Sea Around Us (University of British Columbia / partners)",
+    "license": "CC BY-NC-SA 4.0",
+    "citation": "Sea Around Us. Reconstructed catch data, Data version 50.1. Downloaded 11 March 2026. See http://www.seaaroundus.org/citation-policy/ for full citation guidance.",
+    "doi": null,
+    "source_url": "http://www.seaaroundus.org/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "IMPORTANT: this extract's only area_name is 'GFCM' (Mediterranean/Black Sea), not a Red Sea RFMO -- consider excluding from a strictly Red-Sea-scoped catalog, or clearly labeling as an out-of-basin reference/comparison dataset. Kept in per task instructions to flag honestly rather than silently drop.",
+      "'RFMO 4' in the filename likely refers to the SAU internal RFMO ID, not '4 RFMOs' worth of content -- only GFCM rows were found in this file; not independently confirmed against the full 1.3M-row file (only spot-checked).",
+      "bbox/subbasins fields are not meaningful for this record given the mismatch above; bbox given is a rough Mediterranean+Black Sea box, not the Red Sea.",
+      "A duplicate .zip archive also exists alongside it (SAU RFMO 4 v50-1.zip) -- not catalogued separately."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

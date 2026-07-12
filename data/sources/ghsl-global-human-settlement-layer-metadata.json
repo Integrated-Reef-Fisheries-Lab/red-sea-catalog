@@ -1,0 +1,112 @@
+{
+  "id": "ghsl-global-human-settlement-layer-metadata",
+  "title": "Copernicus Global Human Settlement Layer (GHSL) — Metadata Record",
+  "abstract": "Metadata record describing the Copernicus Global Human Settlement Layer (GHSL), a global gridded dataset of built-up surface and population produced by the European Commission Joint Research Centre (JRC) from Sentinel-2/Landsat imagery and census data. Only the dataset metadata record has been downloaded locally; the underlying GHS-BUILT-S and GHS-POP raster grids themselves (2.0 GB and 4.9 GB global downloads respectively) have not yet been acquired.",
+  "domain": [
+    "socio-economic"
+  ],
+  "themes": [
+    "human settlement",
+    "built-up surface",
+    "population grid",
+    "urbanization"
+  ],
+  "keywords": [
+    "GHSL",
+    "GHS-POP",
+    "GHS-BUILT-S",
+    "JRC",
+    "Copernicus",
+    "human settlement",
+    "population density"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "100m grid (Mollweide, global)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1975",
+    "end": "2030",
+    "frequency": "irregular",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "GHSL dataset metadata (CSV, HDX-style field/label/value export)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/metadata-global-human-settlement-layer-ghsl.csv",
+      "size": "4.7 KB",
+      "n_rows": 50,
+      "variables": [
+        {
+          "name": "resource_1_description",
+          "label": "GHS-BUILT-S Description",
+          "type": "string",
+          "unit": "text",
+          "description": "Describes the GHS-BUILT-S built-up surface product: Epoch 2025, 100m resolution, Mollweide projection, residential/non-residential classification.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "resource_2_description",
+          "label": "GHS-POP Description",
+          "type": "string",
+          "unit": "text",
+          "description": "Describes the GHS-POP population grid product: Epoch 2025, 100m resolution, Mollweide projection, multitemporal 1975-2030.",
+          "missing_values": [],
+          "maps_to": [
+            "socio-economic:population_density"
+          ]
+        },
+        {
+          "name": "resource_download_url",
+          "label": "Download URL",
+          "type": "string",
+          "unit": "URL",
+          "description": "Direct download link to the JRC JEODPP FTP archive for each GHSL product (not yet fetched into local storage).",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "European Commission, Joint Research Centre (JRC)",
+      "email": "GHSL-support@jrc.ec.europa.eu"
+    },
+    "how_to_request": "Freely downloadable from the JRC GHSL data portal (https://ghsl.jrc.ec.europa.eu/) and JEODPP FTP archive; no request required. Local KAUST copy currently holds only the dataset metadata, not the raster grids."
+  },
+  "provenance": {
+    "originator": "European Commission, Joint Research Centre (JRC)",
+    "license": "CC BY 4.0",
+    "citation": "Schiavina M., Freire S., Carioli A., MacManus K. (2023): GHS-POP R2023A - GHS population grid multitemporal (1975-2030). European Commission, Joint Research Centre (JRC).",
+    "doi": "10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE",
+    "source_url": "https://ghsl.jrc.ec.europa.eu/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Only the dataset metadata CSV is present locally; the actual GHS-BUILT-S and GHS-POP GeoTIFF grids (2.0 GB and 4.9 GB) have not been downloaded yet.",
+      "GHSL is a global product with no Red-Sea-coastal-specific subsetting or clipping performed locally.",
+      "A separate GHS-BUILT-S citation/DOI also applies (Pesaresi & Politis 2023, doi:10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA) but is not included here since this record's citation privileges the population product most relevant to the socio-economic domain."
+    ],
+    "last_verified": "2026-04-05"
+  },
+  "used_in": []
+}

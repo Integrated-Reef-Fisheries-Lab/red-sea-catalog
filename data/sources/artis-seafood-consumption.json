@@ -1,0 +1,201 @@
+{
+  "id": "artis-seafood-consumption",
+  "title": "ARTIS Seafood Consumption Estimates (Midpoint), 1996–2020",
+  "abstract": "Global, species-disaggregated apparent seafood consumption estimates by consuming country, reconstructed by the ARTIS project from bilateral trade and production data. Tracks the source country, exporter, and consumer for each flow along with habitat, production method, and consumption source (domestic vs. foreign), across five HS classification revisions spanning 1996-2020.",
+  "domain": [
+    "production",
+    "socio-economic"
+  ],
+  "themes": [
+    "seafood consumption",
+    "apparent consumption",
+    "food supply",
+    "HS classification"
+  ],
+  "keywords": [
+    "ARTIS",
+    "seafood consumption",
+    "food supply",
+    "per-capita consumption"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national (global consumption estimates; not spatially disaggregated below country level)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1996",
+    "end": "2020",
+    "frequency": "annual",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "ARTIS consumption estimates, midpoint (ZIP of 71 CSVs)",
+      "format": "ZIP (CSV)",
+      "path": "KAUST - DATA/Production/Trade/consumption.zip",
+      "size": "895 MB",
+      "n_rows": 65000000,
+      "variables": [
+        {
+          "name": "year",
+          "label": "Year",
+          "type": "integer",
+          "unit": "year",
+          "description": "Consumption year, 1996-2020.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "hs_version",
+          "label": "HS Classification Version",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Harmonized System revision used for this record's coding.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "source_country_iso3c",
+          "label": "Ultimate Source Country",
+          "type": "string",
+          "unit": "ISO3 code",
+          "description": "Country of ultimate production/catch origin.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "exporter_iso3c",
+          "label": "Exporter",
+          "type": "string",
+          "unit": "ISO3 code",
+          "description": "Exporting country in the trade chain leading to consumption; may be null for direct domestic consumption.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "consumer_iso3c",
+          "label": "Consuming Country",
+          "type": "string",
+          "unit": "ISO3 code",
+          "description": "Country where the product is estimated to be consumed.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "dom_source",
+          "label": "Domestic/Foreign Source",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Whether the consumed product originated domestically or from a foreign source.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "sciname",
+          "label": "Scientific Name",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Taxon resolved for the consumed product.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "habitat",
+          "label": "Habitat",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Marine or inland habitat of the source species.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "method",
+          "label": "Production Method",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Capture (wild) or aquaculture production method.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "consumption_source",
+          "label": "Consumption Source",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Domestic or foreign classification of the consumption pathway.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "sciname_hs_modified",
+          "label": "Scientific Name (HS-modified)",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Scientific name adjusted for HS-code resolution; used because this file omits the HS6 code to reduce file size (per attributes_README).",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "consumption_live_t",
+          "label": "Consumption (Live Weight)",
+          "type": "float",
+          "unit": "tonnes",
+          "description": "Estimated apparent consumption in live-weight equivalent.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Data Inventory Team",
+      "email": "data-inventory@kaust.edu.sa"
+    },
+    "how_to_request": "ARTIS is a research-consortium data product understood to be openly published; exact access portal/terms were not verified locally. Local ZIP copy available on request from the KAUST Data Inventory Team pending confirmation of redistribution terms."
+  },
+  "provenance": {
+    "originator": "ARTIS (Aquatic Resource Trade in Species) research consortium",
+    "license": null,
+    "citation": null,
+    "doi": null,
+    "source_url": null,
+    "derived_from": [
+      "artis-seafood-trade-matrix"
+    ]
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "The ZIP contains 71 separate CSVs, one per HS-classification/year combination, mirroring trade.zip's structure; coverage years overlap across HS revisions, so the same de-duplication caution applies before aggregating.",
+      "n_rows (~65 million) is an order-of-magnitude estimate derived from total uncompressed size (~6.65 GB) and average observed row length; not computed exactly.",
+      "Global dataset, not filtered to Saudi Arabia or the Red Sea; must be filtered on consumer_iso3c / exporter_iso3c / source_country_iso3c = 'SAU' for Kingdom-relevant subsets, and even then cannot distinguish Red Sea vs. Arabian Gulf.",
+      "This file omits the HS6 code (present in trade.zip) to reduce file size, substituting 'sciname_hs_modified'; joins to product descriptions in attribute_tables.zip must account for this.",
+      "Requires joining with the 'artis-attribute-tables' source for population data (per-capita consumption), taxonomic resolution, and country groupings.",
+      "Originator/license/DOI not independently verified — see the same caveat on the 'artis-seafood-trade-matrix' source.",
+      "ZIP also contains macOS resource-fork artifacts (__MACOSX/ entries) alongside the 71 real data files."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

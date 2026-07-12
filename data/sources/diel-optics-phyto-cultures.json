@@ -1,0 +1,99 @@
+{
+  "id": "diel-optics-phyto-cultures",
+  "title": "Bio-optical Properties of Cultured Phytoplankton Over Complete Diel Cycles",
+  "abstract": "Laboratory culture study measuring bio-optical and physiological properties (absorption spectra, pigment composition, particulate organic carbon, growth rates) of phytoplankton cultures sampled across complete diel (24-hour) cycles, supporting a manuscript on diel variability in phytoplankton optics.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "phytoplankton",
+    "bio-optics",
+    "pigments",
+    "laboratory culture"
+  ],
+  "keywords": [
+    "diel cycle",
+    "absorption spectra",
+    "phytoplankton physiology",
+    "optics"
+  ],
+  "spatial": {
+    "bbox": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "subbasins": [],
+    "resolution": "laboratory (not geospatial)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2023",
+    "end": "2023",
+    "frequency": "once",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Final bottle-level and experiment-level summary data",
+      "format": "CSV",
+      "path": "KAUST - DATA/diel_optics_phyto_cultures-master/final_data/FINAL_BOTTLE_11102023.csv, FINAL_SUMMARY_11102023.csv",
+      "size": "part of 558 MB collection",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "gaussian_decompositions",
+          "label": "Gaussian Decomposition Components",
+          "type": "float",
+          "unit": "various",
+          "description": "Component Gaussian functions fit to unsmoothed and decomposed absorption spectra.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "pigment_ratios",
+          "label": "Pigment Absorption Ratios",
+          "type": "float",
+          "unit": "ratio",
+          "description": "Peaks of individual pigment absorption Gaussian functions and ratios between them.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "correlations",
+          "label": "Spearman Correlation Coefficients",
+          "type": "float",
+          "unit": "correlation coefficient",
+          "description": "Nonparametric Spearman correlations between phytoplankton physiological measurements and bio-optical properties at 470/550/660 nm.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "N. Baetge et al.",
+      "email": ""
+    },
+    "how_to_request": "Mirrored from a public GitHub repository accompanying the manuscript; freely available per the repository README."
+  },
+  "provenance": {
+    "originator": "Baetge, N., Halesy, K., Graff, J.R., Ver Wey, B., Westberry, T., Appel, A.E., Bourdin, G., Begouen Demeaux, C., Boss, E., Behrenfeld, M.J.",
+    "license": "Freely available for use per repository README",
+    "citation": "Baetge, N. et al. (in review). Bio-optical properties of cultured phytoplankton over complete diel cycles.",
+    "doi": null,
+    "source_url": null,
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [
+      "Not Red-Sea-specific — a general phytoplankton physiology reference study, included for its bio-optical methodology relevance rather than basin coverage."
+    ],
+    "last_verified": "2023-11-10"
+  },
+  "used_in": []
+}

@@ -1,0 +1,138 @@
+{
+  "id": "food-systems-dashboard-saudi-arabia",
+  "title": "Food Systems Dashboard — Saudi Arabia Country Profile Export",
+  "abstract": "Cross-cutting food systems indicators for Saudi Arabia exported from the Food Systems Dashboard, spanning food environments, food supply chains, individual diets and nutrition outcomes, drivers (biophysical, socio-economic, political, innovation), and policies, compiled from multiple underlying sources (FAO, NCD-RisC, Beal et al., World Bank, etc.) with an accompanying metadata file defining each indicator's sector, source, unit, definition, and calculation method.",
+  "domain": [
+    "nutrition-health"
+  ],
+  "themes": [
+    "food systems",
+    "diet quality",
+    "nutrition outcomes",
+    "food environment",
+    "national statistics"
+  ],
+  "keywords": [
+    "Food Systems Dashboard",
+    "Saudi Arabia",
+    "food systems",
+    "diet",
+    "nutrition indicators"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      28.8
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1980",
+    "end": "2026",
+    "frequency": "irregular",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Food Systems Dashboard export — Saudi Arabia (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Human Nutrition and Health/food-systems-dashboard-2026-04-02.csv",
+      "size": "435.3 KB",
+      "n_rows": 3549,
+      "variables": [
+        {
+          "name": "Indicator",
+          "label": "Indicator Name",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Name of the food systems indicator (e.g. adult diabetes prevalence, availability of food-based dietary guidelines).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Value",
+          "label": "Indicator Value",
+          "type": "string",
+          "unit": "varies (defined per-indicator in metadata file)",
+          "description": "Reported value for the indicator, country, and year range; unit varies by indicator and is defined in the companion metadata CSV.",
+          "missing_values": [
+            ""
+          ],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Food Systems Dashboard indicator metadata (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Human Nutrition and Health/food-systems-dashboard-2026-04-02-metadata.csv",
+      "size": "308.2 KB",
+      "n_rows": 347,
+      "variables": [
+        {
+          "name": "Name",
+          "label": "Indicator Name",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Indicator name, joinable to the Indicator column in the main export.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Definition",
+          "label": "Indicator Definition",
+          "type": "string",
+          "unit": "text",
+          "description": "Free-text definition of what the indicator measures.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "Source",
+          "label": "Underlying Data Source",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Originating source/study for the indicator (e.g. FAO, NCD-RisC, Beal et al. 2019).",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Human Nutrition and Health Data Team",
+      "email": "nutrition-health-data@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly available for export from the Food Systems Dashboard (foodsystemsdashboard.org); no request required."
+  },
+  "provenance": {
+    "originator": "Food Systems Dashboard (Johns Hopkins University, GAIN, Columbia University)",
+    "license": "Food Systems Dashboard open data terms (indicator-level source licenses may vary; see metadata file)",
+    "citation": "Food Systems Dashboard. Saudi Arabia Country Profile. Accessed 2026-04-02.",
+    "doi": null,
+    "source_url": "https://www.foodsystemsdashboard.org/countries/sau",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Compilation of indicators from many underlying sources with heterogeneous years, coverage, and update frequency; not a single coherent time series.",
+      "No sub-national spatial detail; national Saudi Arabia figures applied uniformly across all five subbasins.",
+      "Value column mixes numeric, percentage, and categorical (Yes/No) values depending on indicator; requires the metadata file to interpret correctly."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

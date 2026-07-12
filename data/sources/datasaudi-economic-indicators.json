@@ -1,0 +1,243 @@
+{
+  "id": "datasaudi-economic-indicators",
+  "title": "Data Saudi — National Economic Indicators (GDP, Prices, Labor, Markets)",
+  "abstract": "National quarterly and monthly economic indicators for Saudi Arabia sourced from the Data Saudi open data portal, including nominal/real/seasonally-adjusted GDP by economic activity, wholesale price index, working hours by gender/nationality/sector, and Tadawul stock market indicators. Included for socio-economic context (e.g. agriculture/fishing sector GDP contribution) though most series are not marine- or coastal-specific.",
+  "domain": [
+    "socio-economic"
+  ],
+  "themes": [
+    "GDP",
+    "economic activity",
+    "wholesale prices",
+    "labor statistics",
+    "stock market"
+  ],
+  "keywords": [
+    "Data Saudi",
+    "GASTAT",
+    "GDP",
+    "wholesale price index",
+    "working hours",
+    "Tadawul",
+    "economic activity"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      55.7,
+      32.2
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2010-01",
+    "end": "2026-03",
+    "frequency": "monthly",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Nominal GDP by economic activity, quarterly (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_nominal_gdp_by_economic_activity_2026-03-23T11_59_32.683Z.csv",
+      "size": "66.3 KB",
+      "n_rows": 704,
+      "variables": [
+        {
+          "name": "nominal_gdp",
+          "label": "Nominal GDP",
+          "type": "float",
+          "unit": "SAR million",
+          "description": "Nominal GDP by economic sector (including Agriculture, Forestry & Fishing) and quarter.",
+          "missing_values": [],
+          "maps_to": [
+            "production:landings_tonnes"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GDP by economic activity, quarterly, combined (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_all_gdp_by_economic_activity_quarter_2026-03-23T12_01_12.127Z.csv",
+      "size": "96.3 KB",
+      "n_rows": 768,
+      "variables": [
+        {
+          "name": "nominal_gdp",
+          "label": "Nominal GDP",
+          "type": "float",
+          "unit": "SAR million",
+          "description": "Nominal GDP by economic activity section and quarter.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "real_gdp",
+          "label": "Real GDP",
+          "type": "float",
+          "unit": "SAR million",
+          "description": "Real (inflation-adjusted) GDP by economic activity section and quarter.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "seasonally_adjusted_real_gdp",
+          "label": "Seasonally Adjusted Real GDP",
+          "type": "float",
+          "unit": "SAR million",
+          "description": "Seasonally adjusted real GDP by economic activity section and quarter.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "GDP by economic activity section, quarterly (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_gdp_2026-03-23T12_04_10.070Z.csv",
+      "size": "40.7 KB",
+      "n_rows": 768,
+      "variables": [
+        {
+          "name": "gdp",
+          "label": "GDP",
+          "type": "float",
+          "unit": "SAR million",
+          "description": "GDP by economic activity section and quarter.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Real GDP by economic activity, quarterly (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_real_gdp_by_economic_activity_2026-03-23T12_04_44.095Z.csv",
+      "size": "66.4 KB",
+      "n_rows": 704,
+      "variables": [
+        {
+          "name": "real_gdp",
+          "label": "Real GDP",
+          "type": "float",
+          "unit": "SAR million",
+          "description": "Real (inflation-adjusted) GDP by economic sector and quarter.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Seasonally adjusted real GDP by economic activity, quarterly (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_seasonally_adjusted_real_gdp_by_economic_activity_2026-03-23T12_05_40.275Z.csv",
+      "size": "66.6 KB",
+      "n_rows": 704,
+      "variables": [
+        {
+          "name": "seasonally_adjusted_real_gdp",
+          "label": "Seasonally Adjusted Real GDP",
+          "type": "float",
+          "unit": "SAR million",
+          "description": "Seasonally adjusted real GDP by economic sector and quarter.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Wholesale Price Index, monthly (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_wpi_2026-03-23T12_06_47.242Z.csv",
+      "size": "62.5 KB",
+      "n_rows": 876,
+      "variables": [
+        {
+          "name": "wholesale_price_index",
+          "label": "Wholesale Price Index",
+          "type": "float",
+          "unit": "index",
+          "description": "Wholesale price index by category (including agriculture and fishery products) and month.",
+          "missing_values": [
+            "NaN"
+          ],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Working hours by gender, nationality, and economic activity (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/gastat_working_hours_gender_nationality_economic_activity_2026-03-23T11_53_04.078Z.csv",
+      "size": "73.1 KB",
+      "n_rows": 966,
+      "variables": [
+        {
+          "name": "working_hours",
+          "label": "Average Working Hours",
+          "type": "float",
+          "unit": "hours/week",
+          "description": "Average weekly working hours by economic sector (including Agriculture, Forestry & Fishing), nationality, and sex, by year.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Tadawul stock market indicators, monthly (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Socio-Economic/Secondary/DataSaudi/tadawul_indicators_2026-03-23T12_08_41.265Z.csv",
+      "size": "178.1 KB",
+      "n_rows": 3050,
+      "variables": [
+        {
+          "name": "tadawul_indicator_value",
+          "label": "Tadawul Index Value",
+          "type": "float",
+          "unit": "index points",
+          "description": "Monthly value of Saudi stock exchange (Tadawul) indicators, including sector indices.",
+          "missing_values": [
+            "NaN"
+          ],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "General Authority for Statistics (GASTAT), Saudi Arabia",
+      "email": "info@stats.gov.sa"
+    },
+    "how_to_request": "Published openly on the Data Saudi portal (https://datasaudi.sa/en), sourced from GASTAT and Tadawul; no request required."
+  },
+  "provenance": {
+    "originator": "General Authority for Statistics (GASTAT), Saudi Arabia, via Data Saudi portal",
+    "license": "Saudi Open Data License",
+    "citation": null,
+    "doi": null,
+    "source_url": "https://datasaudi.sa/en",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "National-level macroeconomic indicators, not Red-Sea or coastal-specific; only the Agriculture/Forestry/Fishing sector series are directly relevant to marine socio-economics.",
+      "Tadawul stock market indicators are only tangentially related to the Socio-Economic marine domain and are included here mainly for completeness since the file was present in the DataSaudi export folder.",
+      "Downloaded as separate export files from the Data Saudi portal (filenames carry export timestamps of 2026-03-23); no formal citation string confirmed, so citation is left null."
+    ],
+    "last_verified": "2026-03-23"
+  },
+  "used_in": []
+}

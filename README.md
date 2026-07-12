@@ -1,9 +1,17 @@
 # Red Sea Marine Data Catalog
 
 A static catalog of marine datasets covering the Red Sea basin — browse/search, a
-spatial footprint map, a coverage gap matrix, and per-dataset detail pages.
-Built with Next.js (App Router, static export), Tailwind, MapLibre GL, and
-browser-side semantic search via transformers.js. Deployed to GitHub Pages.
+spatial footprint map, a coverage gap matrix, an interactive source network graph,
+and per-dataset detail pages. Built with Next.js (App Router, static export),
+Tailwind, MapLibre GL, d3-force, and browser-side semantic search via
+transformers.js. Deployed to GitHub Pages.
+
+The 43 datasets in `data/sources/` are a real inventory drawn from KAUST's Red
+Sea research data holdings (environmental, ecological, production,
+nutrition-health, and socio-economic domains) — not placeholder data. Each
+record's `quality.known_issues` field notes anything inferred or unverified
+during cataloging (e.g. uncounted rows in multi-GB files, unconfirmed
+licenses/DOIs) rather than guessing silently.
 
 Live site: https://integrated-reef-fisheries-lab.github.io/red-sea-catalog/
 

@@ -1,0 +1,140 @@
+{
+  "id": "global-intake-inadequacies-nutrient-estimates",
+  "title": "Global Estimation of Dietary Micronutrient Inadequacies — National & Subnational Prevalence Estimates",
+  "abstract": "Modeled national and subnational prevalence estimates of inadequate micronutrient intake (15 micronutrients including calcium, iron, zinc, vitamin B12, iodine, etc.) for most countries worldwide, including Saudi Arabia, based on the modeling analysis published in The Lancet Global Health (Passarelli et al. 2024). Includes the full companion GitHub repository (code, data inputs, figures, tables, and Shiny app source) as archived locally.",
+  "domain": [
+    "nutrition-health"
+  ],
+  "themes": [
+    "micronutrient inadequacy",
+    "dietary modeling",
+    "nutrient intake",
+    "national statistics",
+    "hidden hunger"
+  ],
+  "keywords": [
+    "micronutrient deficiency",
+    "hidden hunger",
+    "Lancet Global Health",
+    "dietary inadequacy",
+    "Saudi Arabia",
+    "GDD",
+    "GENuS"
+  ],
+  "spatial": {
+    "bbox": [
+      34.5,
+      16,
+      42.8,
+      28.8
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2011",
+    "end": "2018",
+    "frequency": "once",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "2018 national nutrient intake inadequacy estimates (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Human Nutrition and Health/global_intake_inadequacies-main/output/2018_national_nutrient_intake_inadequacy_estimates.csv",
+      "size": "214.6 KB",
+      "n_rows": 2715,
+      "variables": [
+        {
+          "name": "nutrient",
+          "label": "Nutrient",
+          "type": "string",
+          "unit": "categorical",
+          "description": "One of 15 modeled micronutrients (Calcium, Folate, Iodine, Iron, Magnesium, Niacin, Riboflavin, Selenium, Thiamin, Vitamin A (RAE), Vitamin B12, Vitamin B6, Vitamin C, Vitamin E, Zinc).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "ndeficient",
+          "label": "Number of People with Inadequate Intake",
+          "type": "float",
+          "unit": "count",
+          "description": "Estimated number of people in the country with habitual intake below the estimated average requirement for the nutrient.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "pdeficient",
+          "label": "Proportion of Population with Inadequate Intake",
+          "type": "float",
+          "unit": "proportion (0-1)",
+          "description": "Estimated proportion of the national population with inadequate habitual intake of the nutrient.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "2018 subnational nutrient intake inadequacy estimates, simplified (CSV)",
+      "format": "CSV",
+      "path": "KAUST - DATA/Human Nutrition and Health/global_intake_inadequacies-main/output/2018_subnational_nutrient_intake_inadequacy_estimates_simple.csv",
+      "size": "18.8 MB",
+      "n_rows": 118592,
+      "variables": [
+        {
+          "name": "pdeficient",
+          "label": "Proportion of Population with Inadequate Intake (subnational)",
+          "type": "float",
+          "unit": "proportion (0-1)",
+          "description": "Estimated proportion of the subnational (admin-1) population with inadequate habitual intake of the nutrient, for the 2018 estimate year.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    },
+    {
+      "name": "Database metadata (XLSX)",
+      "format": "XLSX",
+      "path": "KAUST - DATA/Human Nutrition and Health/global_intake_inadequacies-main/output/database_metadata.xlsx",
+      "size": "11.7 KB",
+      "n_rows": 0,
+      "variables": []
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Human Nutrition and Health Data Team",
+      "email": "nutrition-health-data@kaust.edu.sa"
+    },
+    "how_to_request": "Publicly available on GitHub (openwashdata-style open repository) accompanying the published paper; no request required. Local mirror is a full clone of the 'global_intake_inadequacies' repository."
+  },
+  "provenance": {
+    "originator": "Passarelli, Free, Shepon, Beal, Batis, Golden — emLab, UC Santa Barbara / Tufts University",
+    "license": "Not stated in repository; treat as open per accompanying open-access publication (verify before redistribution).",
+    "citation": "Passarelli S, Free CM, Shepon A, Beal T, Batis C, Golden CD (2024) Global estimation of dietary micronutrient inadequacies: a modeling analysis. The Lancet Global Health 12(10):e1590-e1599.",
+    "doi": "10.1016/S2214-109X(24)00276-6",
+    "source_url": "https://github.com/cfree14/global_intake_inadequacies",
+    "derived_from": [
+      "gdd-final-estimates-2018"
+    ]
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [
+      "Estimates are model-based (probability/EAR-cut-point approaches applied to GDD and GENuS dietary intake distributions), not direct biomarker measurements.",
+      "No sub-national or Red-Sea-specific spatial resolution beyond the repository's own admin-1 subnational estimates; Saudi Arabia's subnational units do not align with Red Sea subbasin boundaries, so all five subbasins are tagged with the national/subnational figures uniformly.",
+      "Repository also contains large binary R data (.Rds) outputs and manuscript drafts not itemized as resources here; only the two primary tabular outputs and the metadata workbook are cataloged.",
+      "License terms are not explicitly stated in the repository; publicly hosted alongside an open-access Lancet Global Health article but redistribution terms should be confirmed with the authors before reuse."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

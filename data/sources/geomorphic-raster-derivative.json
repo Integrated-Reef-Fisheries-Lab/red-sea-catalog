@@ -1,0 +1,86 @@
+{
+  "id": "geomorphic-raster-derivative",
+  "title": "Geomorphic Zonation Raster (Rasterized from Allen Coral Atlas)",
+  "abstract": "Rasterized GeoTIFF derivative of the Allen Coral Atlas geomorphic zonation vector layer, produced internally for faster raster-based analysis (e.g. zonal statistics) than the source GeoPackage allows.",
+  "domain": [
+    "ecological"
+  ],
+  "themes": [
+    "reef geomorphology",
+    "habitat mapping"
+  ],
+  "keywords": [
+    "geomorphic zone",
+    "raster",
+    "reef classification"
+  ],
+  "spatial": {
+    "bbox": [
+      32.5,
+      12.5,
+      43.5,
+      29.5
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "3.7 m",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2023",
+    "end": "2023",
+    "frequency": "once",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Geomorphic raster (2 variants)",
+      "format": "GeoTIFF",
+      "path": "KAUST - DATA/geomorphic_output.tif, KAUST - DATA/geomorphic_raster.tif",
+      "size": "915 MB + 921 MB",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "class_code",
+          "label": "Geomorphic Class Code",
+          "type": "integer",
+          "unit": "categorical code",
+          "description": "Rasterized geomorphic class code matching the Allen Coral Atlas geomorphic-map class scheme.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "KAUST research team",
+      "email": ""
+    },
+    "how_to_request": "Internal derivative — contact the team for the rasterization method used."
+  },
+  "provenance": {
+    "originator": "KAUST (derived internally)",
+    "license": "Inherits Allen Coral Atlas data license",
+    "citation": "",
+    "doi": null,
+    "source_url": null,
+    "derived_from": [
+      "allen-coral-atlas-red-sea"
+    ]
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Two near-duplicate output files present (geomorphic_output.tif and geomorphic_raster.tif); relationship between them (e.g. one an intermediate/reprocessed version of the other) not documented — needs verification with whoever produced them."
+    ],
+    "last_verified": "2026-04-22"
+  },
+  "used_in": []
+}

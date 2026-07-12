@@ -1,0 +1,89 @@
+{
+  "id": "cmems-olci-chlorophyll-redsea",
+  "title": "Sentinel-3 OLCI Chlorophyll-a — Red Sea (300 m, Daily)",
+  "abstract": "Daily chlorophyll-a concentration from Sentinel-3 OLCI ocean color imagery at 300 m resolution, clipped precisely to the Red Sea extent, distributed via Copernicus Marine Service.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "chlorophyll-a",
+    "ocean color",
+    "remote sensing"
+  ],
+  "keywords": [
+    "Sentinel-3",
+    "OLCI",
+    "chlorophyll",
+    "Copernicus Marine Service",
+    "ocean color"
+  ],
+  "spatial": {
+    "bbox": [
+      31.08,
+      11.31,
+      45.98,
+      29.52
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "300 m",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2016-04",
+    "end": "2026-04",
+    "frequency": "daily",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Daily CHL composite (NetCDF)",
+      "format": "NetCDF",
+      "path": "KAUST - DATA/cmems_obs-oc_glo_bgc-plankton_my_l3-olci-300m_P1D_CHL_31.08E-45.98E_11.31N-29.52N_2016-04-25-2026-04-13.nc",
+      "size": "120 GB",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "CHL",
+          "label": "Chlorophyll-a Concentration",
+          "type": "float",
+          "unit": "mg/m3",
+          "description": "Daily Sentinel-3 OLCI Level-3 chlorophyll-a concentration.",
+          "missing_values": [
+            "NaN"
+          ],
+          "maps_to": [
+            "ecological:coral_bleaching_alert"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Copernicus Marine Service (mirrored internally by KAUST)",
+      "email": ""
+    },
+    "how_to_request": "Publicly downloadable from https://marine.copernicus.eu/ (OCEANCOLOUR_GLO_BGC_L3_MY product family)."
+  },
+  "provenance": {
+    "originator": "EU Copernicus Marine Service",
+    "license": "Copernicus Marine Service open license",
+    "citation": "EU Copernicus Marine Service Information. OCEANCOLOUR_GLO_BGC_L3_MY_009_107.",
+    "doi": null,
+    "source_url": "https://marine.copernicus.eu/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [],
+    "last_verified": "2026-04-13"
+  },
+  "used_in": []
+}

@@ -1,0 +1,132 @@
+{
+  "id": "reefscale-global-reef-fish-biomass",
+  "title": "ReefScale Global Reef Fish Biomass and Management Dataset",
+  "abstract": "Global compilation of reef fish biomass survey data (belt-transect visual census) linked to socio-economic gravity metrics (travel time to market/population, reserve status, management type) at thousands of coral reef sites worldwide, used for cross-regional benchmarking of Red Sea reef fish biomass against global reef condition gradients.",
+  "domain": [
+    "ecological",
+    "socio-economic"
+  ],
+  "themes": [
+    "reef fish",
+    "fish biomass",
+    "reef management",
+    "gravity model"
+  ],
+  "keywords": [
+    "ReefScale",
+    "fish biomass",
+    "reef management",
+    "gravity",
+    "global reef survey"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [],
+    "resolution": "site-level",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2001",
+    "end": "2019",
+    "frequency": "irregular",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "Site-year-level fish biomass and covariates",
+      "format": "CSV",
+      "path": "KAUST - DATA/reefscale_data_revised.csv",
+      "size": "1.2 MB",
+      "n_rows": 2075,
+      "variables": [
+        {
+          "name": "FamBiomass_tkm2",
+          "label": "Family-level Fish Biomass",
+          "type": "float",
+          "unit": "tonnes/km2",
+          "description": "Total reef fish biomass estimated from belt-transect visual census.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": [
+            "ecological:fish_biomass"
+          ]
+        },
+        {
+          "name": "HardCoral",
+          "label": "Hard Coral Cover",
+          "type": "float",
+          "unit": "percent",
+          "description": "Percent hard coral cover at the site, where recorded.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "SST_dC",
+          "label": "Sea Surface Temperature",
+          "type": "float",
+          "unit": "degC",
+          "description": "Site-matched SST value.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "Grav_tot",
+          "label": "Total Gravity",
+          "type": "float",
+          "unit": "gravity index",
+          "description": "Combined gravity metric (population and market access weighted by travel time) — a standard predictor of reef fishing pressure.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "MGMT_type",
+          "label": "Management Type",
+          "type": "string",
+          "unit": "categorical",
+          "description": "Site management status (e.g. open access, restricted, no-take reserve).",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "KAUST research team",
+      "email": ""
+    },
+    "how_to_request": "Internal mirror of a global reef survey compilation (methodology consistent with Cinner et al.-style reef fish gravity studies) — confirm original source/license with the team before external sharing."
+  },
+  "provenance": {
+    "originator": "Global reef survey compilation (multiple contributing providers per-site; original source not fully documented in this copy)",
+    "license": "Unconfirmed — do not redistribute without verifying terms",
+    "citation": "",
+    "doi": null,
+    "source_url": null,
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Original citation/source paper not confirmed from the file itself — column structure (Grav_tot, MGMT_type, TT_market_h) strongly resembles published reef-fish-biomass gravity studies but the exact source/DOI needs verification before citing externally.",
+      "Global coverage — needs filtering to identify any Red Sea sites specifically."
+    ],
+    "last_verified": "2026-04-22"
+  },
+  "used_in": []
+}

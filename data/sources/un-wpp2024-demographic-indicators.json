@@ -1,0 +1,136 @@
+{
+  "id": "un-wpp2024-demographic-indicators",
+  "title": "UN World Population Prospects 2024 — General Demographic Indicators (F01)",
+  "abstract": "United Nations World Population Prospects 2024 revision, General file F01 'Demographic Indicators' — annual population, fertility, mortality, and migration indicators for all countries and regions of the world, 1950-2023 (Estimates sheet), with additional projection-variant sheets to 2100. Includes Saudi Arabia as one of ~300 geographic entities; not Red-Sea or coastal-specific.",
+  "domain": [
+    "socio-economic"
+  ],
+  "themes": [
+    "population",
+    "fertility",
+    "mortality",
+    "migration",
+    "demographic indicators"
+  ],
+  "keywords": [
+    "World Population Prospects",
+    "WPP2024",
+    "UN DESA",
+    "demographics",
+    "fertility",
+    "life expectancy",
+    "migration",
+    "Saudi Arabia"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1950",
+    "end": "2023",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "WPP2024 General Demographic Indicators, Estimates 1950-2023 (XLSX)",
+      "format": "XLSX",
+      "path": "KAUST - DATA/Socio-Economic/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_FULL.xlsx",
+      "size": "137 MB",
+      "n_rows": 21983,
+      "variables": [
+        {
+          "name": "total_population",
+          "label": "Total Population, as of 1 January / 1 July",
+          "type": "float",
+          "unit": "thousands",
+          "description": "Total population (both sexes) for the region/country/area and year.",
+          "missing_values": [],
+          "maps_to": [
+            "socio-economic:population_density",
+            "socio-economic:population_growth"
+          ]
+        },
+        {
+          "name": "population_density",
+          "label": "Population Density",
+          "type": "float",
+          "unit": "persons/km2",
+          "description": "National population density for the country/area and year.",
+          "missing_values": [],
+          "maps_to": [
+            "socio-economic:population_density_region"
+          ]
+        },
+        {
+          "name": "total_fertility_rate",
+          "label": "Total Fertility Rate",
+          "type": "float",
+          "unit": "births/woman",
+          "description": "Average number of live births per woman over her reproductive lifetime.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "life_expectancy_at_birth",
+          "label": "Life Expectancy at Birth, Both Sexes",
+          "type": "float",
+          "unit": "years",
+          "description": "Number of years a newborn would live if current mortality patterns persisted.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "net_migration_rate",
+          "label": "Net Migration Rate",
+          "type": "float",
+          "unit": "per 1,000 population",
+          "description": "Net number of migrants divided by the population, expressed per 1,000 population, for the year.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "UN DESA Population Division",
+      "email": "population@un.org"
+    },
+    "how_to_request": "Freely downloadable from https://population.un.org/wpp/ under UN open data terms; no request required."
+  },
+  "provenance": {
+    "originator": "United Nations, Department of Economic and Social Affairs, Population Division",
+    "license": "CC BY 3.0 IGO",
+    "citation": "United Nations, Department of Economic and Social Affairs, Population Division (2024). World Population Prospects 2024, Online Edition.",
+    "doi": null,
+    "source_url": "https://population.un.org/wpp/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "Full global file (300 geographic entities, ~21,983 rows in the Estimates sheet alone); Saudi Arabia rows have not been extracted into a Red-Sea-specific subset.",
+      "National-level indicators only — no subnational or coastal-governorate breakdown is possible from this source.",
+      "Workbook also contains 13 additional projection-variant sheets (Medium/High/Low/Constant-fertility/etc., to 2100) not itemized in the variables list above; only the historical 'Estimates' sheet (1950-2023) is described here.",
+      "Exact UN DESA DOI for WPP2024 not confirmed from the file itself, so left null rather than guessed."
+    ],
+    "last_verified": "2026-03-24"
+  },
+  "used_in": []
+}

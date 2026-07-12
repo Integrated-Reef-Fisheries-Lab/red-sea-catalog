@@ -1,0 +1,141 @@
+{
+  "id": "kaust-modis-aqua-sst-night-daily",
+  "title": "AQUA/MODIS Sea Surface Temperature (Nighttime, 4 micron) Daily L3m — Red Sea",
+  "abstract": "Daily NASA AQUA/MODIS Level-3 mapped (L3m) nighttime sea surface temperature granules (SST4 product, 4-micron shortwave-infrared retrieval, unaffected by daytime sun-glint/reflection) covering the Red Sea, archived as a directory of daily NetCDF granules, a tar bundle of the same granules, and a single time-merged 'combined' NetCDF file.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "SST",
+    "sea surface temperature",
+    "remote sensing"
+  ],
+  "keywords": [
+    "SST4",
+    "MODIS",
+    "AQUA",
+    "NASA",
+    "sea surface temperature",
+    "L3m",
+    "nighttime",
+    "satellite"
+  ],
+  "spatial": {
+    "bbox": [
+      32.5,
+      12.5,
+      43.5,
+      29.5
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "4 km (L3m daily, scene extent varies with swath/cloud cover)"
+  },
+  "temporal": {
+    "start": "2005-01",
+    "end": "2026-04",
+    "frequency": "daily",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Daily SST4 (nighttime) granules (directory of NetCDF files)",
+      "format": "NetCDF (directory of per-day files)",
+      "path": "KAUST - DATA/Environmental/Secondary/SST/SST Night Time (4 micron)/",
+      "size": "512 MB",
+      "n_rows": 7577,
+      "variables": [
+        {
+          "name": "sst4",
+          "label": "Sea surface temperature (nighttime, 4um)",
+          "type": "float",
+          "unit": "degC",
+          "description": "Nighttime sea surface temperature retrieved from the 4-micron shortwave-infrared bands of AQUA/MODIS, standard L3m daily SST4 product (filename pattern AQUA_MODIS.YYYYMMDD.L3m.DAY.SST4.x_sst4.nc; recent files carry a .NRT near-real-time flag).",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:thermal_stress_index"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Daily SST4 (nighttime) granules (tar archive)",
+      "format": "TAR (bundle of NetCDF files)",
+      "path": "KAUST - DATA/Environmental/Secondary/SST Night Time (4 micron).tar",
+      "size": "498.0 MB",
+      "n_rows": 7577,
+      "variables": [
+        {
+          "name": "sst4",
+          "label": "Sea surface temperature (nighttime, 4um)",
+          "type": "float",
+          "unit": "degC",
+          "description": "Same content as the extracted directory resource; tar-packaged copy of daily AQUA/MODIS L3m nighttime SST4 granules.",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:thermal_stress_index"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Combined time series (single NetCDF)",
+      "format": "NetCDF",
+      "path": "KAUST - DATA/Environmental/Secondary/AQUA_MODIS_SST_NIGHT_combined.nc",
+      "size": "4.44 GB",
+      "n_rows": 7577,
+      "variables": [
+        {
+          "name": "sst4",
+          "label": "Sea surface temperature (nighttime, 4um)",
+          "type": "float",
+          "unit": "degC",
+          "description": "Apparent time-concatenated merge of the daily nighttime SST4 granules into one multi-time-step NetCDF file. Internal structure not verified - file was not opened/parsed.",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:thermal_stress_index"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "Unassigned - KAUST Red Sea Data Team",
+      "email": "redsea-data@kaust.edu.sa"
+    },
+    "how_to_request": "Contact KAUST Red Sea data team; underlying granules are also freely re-downloadable from NASA OceanColor Web (OB.DAAC) for the same date range and bounding box."
+  },
+  "provenance": {
+    "originator": "NASA Goddard Space Flight Center, Ocean Biology Processing Group (OB.DAAC) - AQUA/MODIS",
+    "license": "Public domain (NASA open data policy)",
+    "citation": "NASA Ocean Biology Processing Group. AQUA/MODIS Ocean Color Data, Sea Surface Temperature (4um nighttime, SST4), NASA OB.DAAC.",
+    "doi": null,
+    "source_url": "https://oceancolor.gsfc.nasa.gov/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "n_rows for the combined NetCDF is inferred from the granule count of the daily-file resources, not verified by opening the file.",
+      "Files after ~2026-01 carry a .NRT (near-real-time) suffix and may later be replaced by reprocessed standard files."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

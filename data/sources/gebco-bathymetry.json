@@ -1,0 +1,98 @@
+{
+  "id": "gebco-bathymetry",
+  "title": "GEBCO Global Bathymetry Grid — Red Sea Extent",
+  "abstract": "Annual releases (2019-2025) of the GEBCO global terrain model, a continuous elevation/bathymetry grid at 15 arc-second resolution, clipped to the Red Sea and Gulf of Aden extent. Includes both the elevation grid and the Type Identifier (TID) grid documenting the source/quality of each cell.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "bathymetry",
+    "seafloor topography",
+    "terrain model"
+  ],
+  "keywords": [
+    "GEBCO",
+    "bathymetry",
+    "elevation",
+    "seafloor",
+    "digital terrain model"
+  ],
+  "spatial": {
+    "bbox": [
+      31.08,
+      11.31,
+      45.98,
+      29.53
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "15 arc-second (~450 m)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2019",
+    "end": "2025",
+    "frequency": "annual",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "GEBCO annual grids (NetCDF + GeoTIFF, 2019-2025)",
+      "format": "NetCDF / GeoTIFF",
+      "path": "KAUST - DATA/GEBCO_22_Apr_2026_7ffbad5ace10/gebco_<year>_n29.53_s11.31_w31.08_e45.98[.tif|.nc]",
+      "size": "629 MB total (28 files)",
+      "n_rows": 28,
+      "variables": [
+        {
+          "name": "elevation",
+          "label": "Elevation/Depth",
+          "type": "float",
+          "unit": "meters",
+          "description": "Combined land elevation and ocean depth (negative below sea level) on a continuous global grid.",
+          "missing_values": [],
+          "maps_to": [
+            "ecological:reef_habitat_depth"
+          ]
+        },
+        {
+          "name": "tid",
+          "label": "Type Identifier",
+          "type": "integer",
+          "unit": "categorical code",
+          "description": "Documents the source data type underlying each grid cell (e.g. direct survey, satellite-derived, interpolated).",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "GEBCO Compilation Group (mirrored internally by KAUST)",
+      "email": ""
+    },
+    "how_to_request": "Publicly downloadable from https://www.gebco.net/data_and_products/gridded_bathymetry_data/; this is a Red-Sea-clipped internal mirror."
+  },
+  "provenance": {
+    "originator": "GEBCO Compilation Group (IHO-IOC)",
+    "license": "GEBCO terms of use — free for any use with attribution (see GEBCO_Grid_terms_of_use.pdf in the source folder)",
+    "citation": "GEBCO Compilation Group. GEBCO Grid. General Bathymetric Chart of the Oceans.",
+    "doi": null,
+    "source_url": "https://www.gebco.net/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [
+      "DOI not recorded per-release — GEBCO issues a distinct DOI for each annual grid, not captured here."
+    ],
+    "last_verified": "2026-04-22"
+  },
+  "used_in": []
+}

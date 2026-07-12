@@ -1,0 +1,141 @@
+{
+  "id": "kaust-modis-aqua-sst-day-daily",
+  "title": "AQUA/MODIS Sea Surface Temperature (Daytime, 11 micron) Daily L3m — Red Sea",
+  "abstract": "Daily NASA AQUA/MODIS Level-3 mapped (L3m) daytime sea surface temperature granules (11-micron longwave-infrared retrieval, standard SST product) covering the Red Sea, archived as a directory of daily NetCDF granules, a tar bundle of the same granules, and a single time-merged 'combined' NetCDF file.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "SST",
+    "sea surface temperature",
+    "remote sensing"
+  ],
+  "keywords": [
+    "SST",
+    "MODIS",
+    "AQUA",
+    "NASA",
+    "sea surface temperature",
+    "L3m",
+    "daytime",
+    "satellite"
+  ],
+  "spatial": {
+    "bbox": [
+      32.5,
+      12.5,
+      43.5,
+      29.5
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "4 km (L3m daily, scene extent varies with swath/cloud cover)"
+  },
+  "temporal": {
+    "start": "2005-01",
+    "end": "2026-04",
+    "frequency": "daily",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Daily SST (daytime) granules (directory of NetCDF files)",
+      "format": "NetCDF (directory of per-day files)",
+      "path": "KAUST - DATA/Environmental/Secondary/SST/SST Day Time Standard (11 micron)/",
+      "size": "528 MB",
+      "n_rows": 7601,
+      "variables": [
+        {
+          "name": "sst",
+          "label": "Sea surface temperature (daytime, 11um)",
+          "type": "float",
+          "unit": "degC",
+          "description": "Daytime sea surface temperature retrieved from the 11-micron longwave-infrared bands of AQUA/MODIS, standard L3m daily product (filename pattern AQUA_MODIS.YYYYMMDD.L3m.DAY.SST.x_sst.nc; recent files carry a .NRT near-real-time flag).",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:thermal_stress_index"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Daily SST (daytime) granules (tar archive)",
+      "format": "TAR (bundle of NetCDF files)",
+      "path": "KAUST - DATA/Environmental/Secondary/SST Day Time Standard (11 micron).tar",
+      "size": "513.9 MB",
+      "n_rows": 7601,
+      "variables": [
+        {
+          "name": "sst",
+          "label": "Sea surface temperature (daytime, 11um)",
+          "type": "float",
+          "unit": "degC",
+          "description": "Same content as the extracted directory resource; tar-packaged copy of daily AQUA/MODIS L3m daytime SST granules.",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:thermal_stress_index"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Combined time series (single NetCDF)",
+      "format": "NetCDF",
+      "path": "KAUST - DATA/Environmental/Secondary/AQUA_MODIS_SST_DAY_combined.nc",
+      "size": "4.45 GB",
+      "n_rows": 7601,
+      "variables": [
+        {
+          "name": "sst",
+          "label": "Sea surface temperature (daytime, 11um)",
+          "type": "float",
+          "unit": "degC",
+          "description": "Apparent time-concatenated merge of the daily daytime SST granules into one multi-time-step NetCDF file. Internal structure not verified - file was not opened/parsed.",
+          "missing_values": [
+            "NaN",
+            "-32767"
+          ],
+          "maps_to": [
+            "ecological:thermal_stress_index"
+          ]
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "kaust-internal",
+    "steward": {
+      "name": "Unassigned - KAUST Red Sea Data Team",
+      "email": "redsea-data@kaust.edu.sa"
+    },
+    "how_to_request": "Contact KAUST Red Sea data team; underlying granules are also freely re-downloadable from NASA OceanColor Web (OB.DAAC) for the same date range and bounding box."
+  },
+  "provenance": {
+    "originator": "NASA Goddard Space Flight Center, Ocean Biology Processing Group (OB.DAAC) - AQUA/MODIS",
+    "license": "Public domain (NASA open data policy)",
+    "citation": "NASA Ocean Biology Processing Group. AQUA/MODIS Ocean Color Data, Sea Surface Temperature (11um daytime), NASA OB.DAAC.",
+    "doi": null,
+    "source_url": "https://oceancolor.gsfc.nasa.gov/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "n_rows for the combined NetCDF is inferred from the granule count of the daily-file resources, not verified by opening the file.",
+      "Files after ~2026-01 carry a .NRT (near-real-time) suffix and may later be replaced by reprocessed standard files."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}

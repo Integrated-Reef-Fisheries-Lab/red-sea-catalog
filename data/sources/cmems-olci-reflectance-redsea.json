@@ -1,0 +1,87 @@
+{
+  "id": "cmems-olci-reflectance-redsea",
+  "title": "Sentinel-3 OLCI Water-Leaving Reflectance — Red Sea (4 km, Daily)",
+  "abstract": "Daily multi-band water-leaving reflectance and derived ocean color variables from Sentinel-3 OLCI at 4 km resolution, clipped to the Red Sea extent, distributed via Copernicus Marine Service.",
+  "domain": [
+    "environmental"
+  ],
+  "themes": [
+    "ocean color",
+    "reflectance",
+    "remote sensing"
+  ],
+  "keywords": [
+    "Sentinel-3",
+    "OLCI",
+    "reflectance",
+    "Copernicus Marine Service",
+    "ocean color"
+  ],
+  "spatial": {
+    "bbox": [
+      31.1,
+      11.31,
+      45.98,
+      29.48
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "4 km",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "2016-04",
+    "end": "2026-04",
+    "frequency": "daily",
+    "ongoing": true
+  },
+  "resources": [
+    {
+      "name": "Daily multi-variable reflectance composite (NetCDF)",
+      "format": "NetCDF",
+      "path": "KAUST - DATA/cmems_obs-oc_glo_bgc-reflectance_my_l3-olci-4km_P1D_multi-vars_31.10E-45.98E_11.31N-29.48N_2016-04-25-2026-04-20.nc",
+      "size": "8.6 GB",
+      "n_rows": 0,
+      "variables": [
+        {
+          "name": "RRS",
+          "label": "Remote Sensing Reflectance",
+          "type": "float",
+          "unit": "sr-1",
+          "description": "Multi-band water-leaving remote sensing reflectance.",
+          "missing_values": [
+            "NaN"
+          ],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "Copernicus Marine Service (mirrored internally by KAUST)",
+      "email": ""
+    },
+    "how_to_request": "Publicly downloadable from https://marine.copernicus.eu/ (OCEANCOLOUR_GLO_BGC_L3_MY product family)."
+  },
+  "provenance": {
+    "originator": "EU Copernicus Marine Service",
+    "license": "Copernicus Marine Service open license",
+    "citation": "EU Copernicus Marine Service Information. OCEANCOLOUR_GLO_BGC_L3_MY_009_107.",
+    "doi": null,
+    "source_url": "https://marine.copernicus.eu/",
+    "derived_from": []
+  },
+  "quality": {
+    "status": "analysis-ready",
+    "known_issues": [],
+    "last_verified": "2026-04-20"
+  },
+  "used_in": []
+}

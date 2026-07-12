@@ -1,0 +1,195 @@
+{
+  "id": "artis-seafood-trade-matrix",
+  "title": "ARTIS Seafood Trade Matrix — Species-Disaggregated Bilateral Trade (Midpoint Estimates), 1996–2020",
+  "abstract": "Global, species-disaggregated bilateral seafood trade flows reconstructed from UN Comtrade HS-code trade statistics by the ARTIS (Aquatic Resource Trade in Species) project. Records product weight and live-weight-equivalent trade between exporting, importing, and ultimate source countries, by scientific name, habitat, and production method (capture/aquaculture), across five Harmonized System classification revisions (HS96, HS02, HS07, HS12, HS17) spanning 1996-2020.",
+  "domain": [
+    "production",
+    "socio-economic"
+  ],
+  "themes": [
+    "seafood trade",
+    "bilateral trade flows",
+    "HS classification",
+    "species disaggregation"
+  ],
+  "keywords": [
+    "ARTIS",
+    "seafood trade",
+    "UN Comtrade",
+    "trade matrix",
+    "aquatic resource trade"
+  ],
+  "spatial": {
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "subbasins": [
+      "northern",
+      "central",
+      "southern",
+      "gulf-of-aqaba",
+      "farasan"
+    ],
+    "resolution": "national (global bilateral trade matrix; not spatially disaggregated below country level)",
+    "geometry_file": null
+  },
+  "temporal": {
+    "start": "1996",
+    "end": "2020",
+    "frequency": "annual",
+    "ongoing": false
+  },
+  "resources": [
+    {
+      "name": "ARTIS bilateral trade, midpoint estimates (ZIP of 71 CSVs)",
+      "format": "ZIP (CSV)",
+      "path": "KAUST - DATA/Production/Trade/trade.zip",
+      "size": "2.45 GB",
+      "n_rows": 90000000,
+      "variables": [
+        {
+          "name": "importer_iso3c",
+          "label": "Importer",
+          "type": "string",
+          "unit": "ISO3 code",
+          "description": "Importing country.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "exporter_iso3c",
+          "label": "Exporter",
+          "type": "string",
+          "unit": "ISO3 code",
+          "description": "Exporting country.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "hs6",
+          "label": "HS6 Product Code",
+          "type": "string",
+          "unit": "n/a",
+          "description": "6-digit Harmonized System product code for the traded item.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "product_weight_t",
+          "label": "Product Weight",
+          "type": "float",
+          "unit": "tonnes",
+          "description": "Traded product weight as reported/estimated.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "dom_source",
+          "label": "Domestic/Foreign Source",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Whether the traded product originated domestically or was re-exported from a foreign source.",
+          "missing_values": [
+            "NA"
+          ],
+          "maps_to": []
+        },
+        {
+          "name": "source_country_iso3c",
+          "label": "Ultimate Source Country",
+          "type": "string",
+          "unit": "ISO3 code",
+          "description": "Country of ultimate production/catch origin for the traded product.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "sciname",
+          "label": "Scientific Name",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Taxon (species, genus, family, etc., depending on HS-code resolution) resolved for the traded product; see attribute tables for taxonomic hierarchy.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "habitat",
+          "label": "Habitat",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Marine or inland habitat of the source species.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "method",
+          "label": "Production Method",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Capture (wild) or aquaculture production method.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "live_weight_t",
+          "label": "Live Weight Equivalent",
+          "type": "float",
+          "unit": "tonnes",
+          "description": "Product weight converted to live-weight equivalent.",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "hs_version",
+          "label": "HS Classification Version",
+          "type": "string",
+          "unit": "n/a",
+          "description": "Harmonized System revision used for this record's coding (HS96, HS02, HS07, HS12, or HS17).",
+          "missing_values": [],
+          "maps_to": []
+        },
+        {
+          "name": "year",
+          "label": "Year",
+          "type": "integer",
+          "unit": "year",
+          "description": "Trade year, 1996-2020.",
+          "missing_values": [],
+          "maps_to": []
+        }
+      ]
+    }
+  ],
+  "access": {
+    "tier": "public",
+    "steward": {
+      "name": "KAUST Data Inventory Team",
+      "email": "data-inventory@kaust.edu.sa"
+    },
+    "how_to_request": "ARTIS is a research-consortium data product understood to be openly published; exact access portal/terms were not verified locally. Local ZIP copy available on request from the KAUST Data Inventory Team pending confirmation of redistribution terms."
+  },
+  "provenance": {
+    "originator": "ARTIS (Aquatic Resource Trade in Species) research consortium",
+    "license": null,
+    "citation": null,
+    "doi": null,
+    "source_url": null,
+    "derived_from": []
+  },
+  "quality": {
+    "status": "raw",
+    "known_issues": [
+      "The ZIP contains 71 separate CSVs, one per HS-classification/year combination (HS96: 1996-2020, HS02: 2002-2020, HS07: 2007-2020, HS12: 2012-2020, HS17: 2017-2020). Coverage years overlap by design across HS revisions (ARTIS reprocesses recent years under multiple HS systems) — naive concatenation of all files will duplicate trade flows; a single HS version per year must be selected before aggregating.",
+      "n_rows (~90 million) is an order-of-magnitude estimate derived from total uncompressed size (~11.8 GB) and average observed row length; it was not computed exactly because of file size.",
+      "Global dataset, not filtered to Saudi Arabia or the Red Sea; must be filtered on importer_iso3c / exporter_iso3c / source_country_iso3c = 'SAU' for Kingdom-relevant subsets. Even filtered to Saudi Arabia, the data cannot distinguish Red Sea vs. Arabian Gulf origin/destination.",
+      "Requires joining with the 'artis-attribute-tables' source (attribute_tables.zip) for full taxonomic resolution, product descriptions, and country groupings.",
+      "Originator was identified from internal filenames (artis_midpoint_*) and the archive's own attributes_README, which references 'ARTIS data'; the exact publication, license, and DOI were not independently verified and should be confirmed before external use or redistribution.",
+      "ZIP also contains macOS resource-fork artifacts (__MACOSX/ entries) alongside the 71 real data files; these should be ignored when extracting."
+    ],
+    "last_verified": "2026-07-12"
+  },
+  "used_in": []
+}
