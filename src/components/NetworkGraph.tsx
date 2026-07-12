@@ -28,6 +28,8 @@ interface SimLink extends SimulationLinkDatum<SimNode> {
   sharedThemes?: string[];
 }
 
+type Selection = { type: 'node'; id: string } | { type: 'link'; index: number } | null;
+
 const WIDTH = 900;
 const HEIGHT = 620;
 
@@ -35,14 +37,15 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const zoomGroupRef = useRef<SVGGElement>(null);
   const nodeRefs = useRef<Map<string, SVGGElement>>(new Map());
-  const linkRefs = useRef<Map<number, SVGLineElement>>(new Map());
+  const linkRefs = useRef<Map<number, SVGLineElement[]>>(new Map());
   const simRef = useRef<Simulation<SimNode, SimLink> | null>(null);
   const dragState = useRef<{ id: string; moved: boolean } | null>(null);
   const panState = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
 
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selection, setSelection] = useState<Selection>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, k: 1 });
+  const [showAllThemes, setShowAllThemes] = useState(false);
 
   const { nodes, links, neighborMap } = useMemo(() => {
     const graph = buildGraph(sources);
@@ -89,12 +92,14 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
         for (const link of links) {
           const source = link.source as SimNode;
           const target = link.target as SimNode;
-          const el = linkRefs.current.get(links.indexOf(link));
-          if (el && source.x != null && target.x != null) {
-            el.setAttribute('x1', String(source.x));
-            el.setAttribute('y1', String(source.y ?? 0));
-            el.setAttribute('x2', String(target.x));
-            el.setAttribute('y2', String(target.y ?? 0));
+          const els = linkRefs.current.get(links.indexOf(link));
+          if (els && source.x != null && target.x != null) {
+            for (const el of els) {
+              el.setAttribute('x1', String(source.x));
+              el.setAttribute('y1', String(source.y ?? 0));
+              el.setAttribute('x2', String(target.x));
+              el.setAttribute('y2', String(target.y ?? 0));
+            }
           }
         }
         for (const node of nodes) {
@@ -152,8 +157,15 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
     simRef.current?.alphaTarget(0);
     dragState.current = null;
     if (drag && !drag.moved) {
-      setSelectedId((current) => (current === id ? null : id));
+      setShowAllThemes(false);
+      setSelection((current) => (current?.type === 'node' && current.id === id ? null : { type: 'node', id }));
     }
+  }
+
+  function handleLinkClick(e: React.MouseEvent, index: number) {
+    e.stopPropagation();
+    setShowAllThemes(false);
+    setSelection((current) => (current?.type === 'link' && current.index === index ? null : { type: 'link', index }));
   }
 
   function handleBackgroundPointerDown(e: React.PointerEvent) {
@@ -162,10 +174,14 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
   }
 
   function handleBackgroundPointerMove(e: React.PointerEvent) {
-    if (!panState.current) return;
-    const dx = e.clientX - panState.current.startX;
-    const dy = e.clientY - panState.current.startY;
-    setTransform((t) => ({ ...t, x: panState.current!.origX + dx, y: panState.current!.origY + dy }));
+    const pan = panState.current;
+    if (!pan) return;
+    const dx = e.clientX - pan.startX;
+    const dy = e.clientY - pan.startY;
+    // Capture `pan` in this closure rather than re-reading panState.current
+    // inside the updater — the updater can run after a pointerup has already
+    // nulled the ref, which crashed with "Cannot read properties of null".
+    setTransform((t) => ({ ...t, x: pan.origX + dx, y: pan.origY + dy }));
   }
 
   function handleBackgroundPointerUp() {
@@ -180,9 +196,19 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
     });
   }
 
-  const selectedSource = selectedId ? sources.find((s) => s.id === selectedId) ?? null : null;
-  const activeId = hoveredId ?? selectedId;
+  const selectedSource = selection?.type === 'node' ? sources.find((s) => s.id === selection.id) ?? null : null;
+  const selectedLink = selection?.type === 'link' ? links[selection.index] : null;
+  const selectedLinkSource =
+    selectedLink && sources.find((s) => s.id === (typeof selectedLink.source === 'string' ? selectedLink.source : (selectedLink.source as SimNode).id));
+  const selectedLinkTarget =
+    selectedLink && sources.find((s) => s.id === (typeof selectedLink.target === 'string' ? selectedLink.target : (selectedLink.target as SimNode).id));
+
+  const activeId =
+    hoveredId ?? (selection?.type === 'node' ? selection.id : null);
   const activeNeighbors = activeId ? neighborMap.get(activeId) ?? new Set<string>() : null;
+  const activeLinkIndex = selection?.type === 'link' ? selection.index : null;
+
+  const SHARED_THEMES_PREVIEW = 4;
 
   return (
     <div className="flex gap-4">
@@ -204,22 +230,40 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
               const sourceId = typeof l.source === 'string' ? l.source : (l.source as SimNode).id;
               const targetId = typeof l.target === 'string' ? l.target : (l.target as SimNode).id;
               const dimmed = activeId != null && sourceId !== activeId && targetId !== activeId;
+              const isSelected = activeLinkIndex === i;
               return (
-                <line
+                <g
                   key={i}
                   ref={(el) => {
-                    if (el) linkRefs.current.set(i, el);
+                    if (el) {
+                      const hit = el.querySelector('.hit') as SVGLineElement | null;
+                      const vis = el.querySelector('.vis') as SVGLineElement | null;
+                      if (hit && vis) linkRefs.current.set(i, [hit, vis]);
+                    }
                   }}
-                  stroke={l.kind === 'lineage' ? '#475569' : '#cbd5e1'}
-                  strokeWidth={l.kind === 'lineage' ? 1.75 : 1}
-                  strokeDasharray={l.kind === 'theme' ? '4 3' : undefined}
-                  opacity={dimmed ? 0.12 : l.kind === 'lineage' ? 0.8 : 0.5}
-                />
+                >
+                  <line
+                    className="hit"
+                    stroke="transparent"
+                    strokeWidth={14}
+                    style={{ cursor: 'pointer' }}
+                    onClick={(e) => handleLinkClick(e, i)}
+                  />
+                  <line
+                    className="vis"
+                    stroke={isSelected ? '#2563eb' : l.kind === 'lineage' ? '#475569' : '#cbd5e1'}
+                    strokeWidth={isSelected ? 3 : l.kind === 'lineage' ? 1.75 : 1}
+                    strokeDasharray={l.kind === 'theme' ? '4 3' : undefined}
+                    opacity={dimmed && !isSelected ? 0.12 : isSelected ? 1 : l.kind === 'lineage' ? 0.8 : 0.5}
+                    pointerEvents="none"
+                  />
+                </g>
               );
             })}
             {nodes.map((n) => {
               const dimmed = activeId != null && n.id !== activeId && !activeNeighbors?.has(n.id);
               const color = DOMAIN_COLORS[n.domain[0]];
+              const isSelected = selection?.type === 'node' && selection.id === n.id;
               return (
                 <g
                   key={n.id}
@@ -236,8 +280,8 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
                   <circle
                     r={n.radius}
                     fill={color}
-                    stroke={n.id === selectedId ? '#0f172a' : 'white'}
-                    strokeWidth={n.id === selectedId ? 2.5 : 1.5}
+                    stroke={isSelected ? '#0f172a' : 'white'}
+                    strokeWidth={isSelected ? 2.5 : 1.5}
                   />
                   <text
                     y={n.radius + 13}
@@ -260,7 +304,7 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
           <span className="flex items-center gap-1">
             <span className="inline-block h-0.5 w-5 border-t border-dashed border-slate-400" /> shared theme
           </span>
-          <span>Drag nodes &middot; scroll to zoom &middot; drag background to pan &middot; click a node for details</span>
+          <span>Drag nodes &middot; scroll to zoom &middot; drag background to pan &middot; click a node or a line for details</span>
         </div>
       </div>
 
@@ -288,9 +332,74 @@ export default function NetworkGraph({ sources }: { sources: Source[] }) {
               View full detail page &rarr;
             </Link>
           </div>
+        ) : selectedLink && selectedLinkSource && selectedLinkTarget ? (
+          <div className="rounded-lg border border-blue-200 bg-blue-50/40 p-4">
+            <span
+              className={`mb-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
+                selectedLink.kind === 'lineage' ? 'bg-slate-700 text-white' : 'bg-slate-200 text-slate-700'
+              }`}
+            >
+              {selectedLink.kind === 'lineage' ? 'Lineage link' : 'Shared-theme link'}
+            </span>
+
+            <div className="mt-2 space-y-2 text-xs">
+              <div>
+                <span className="text-slate-500">From</span>
+                <p className="font-medium text-slate-900">{selectedLinkSource.title}</p>
+              </div>
+              <div>
+                <span className="text-slate-500">To</span>
+                <p className="font-medium text-slate-900">{selectedLinkTarget.title}</p>
+              </div>
+            </div>
+
+            {selectedLink.kind === 'lineage' ? (
+              <p className="mt-3 text-xs text-slate-600">
+                <span className="font-medium">{selectedLinkTarget.title}</span> lists{' '}
+                <span className="font-medium">{selectedLinkSource.title}</span> in its{' '}
+                <code className="rounded bg-slate-100 px-1 py-0.5">provenance.derived_from</code> field — an explicit,
+                recorded lineage relationship between the two datasets.
+              </p>
+            ) : (
+              <div className="mt-3">
+                <p className="text-xs text-slate-600">
+                  These datasets share {selectedLink.sharedThemes?.length ?? 0} theme/keyword
+                  {(selectedLink.sharedThemes?.length ?? 0) === 1 ? '' : 's'} in common:
+                </p>
+                <ul className="mt-1.5 flex flex-wrap gap-1">
+                  {(showAllThemes
+                    ? selectedLink.sharedThemes
+                    : selectedLink.sharedThemes?.slice(0, SHARED_THEMES_PREVIEW)
+                  )?.map((t) => (
+                    <li key={t} className="rounded-full bg-white px-2 py-0.5 text-xs text-slate-700 ring-1 ring-inset ring-slate-200">
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+                {(selectedLink.sharedThemes?.length ?? 0) > SHARED_THEMES_PREVIEW && (
+                  <button
+                    onClick={() => setShowAllThemes((v) => !v)}
+                    className="mt-2 text-xs font-medium text-blue-600 hover:underline"
+                  >
+                    {showAllThemes ? 'Show fewer' : `Show all ${selectedLink.sharedThemes?.length}`}
+                  </button>
+                )}
+              </div>
+            )}
+
+            <div className="mt-4 flex flex-col gap-1 border-t border-blue-100 pt-3">
+              <Link href={`/sources/${selectedLinkSource.id}`} className="text-xs font-medium text-blue-600 hover:underline">
+                View &ldquo;{selectedLinkSource.title.length > 30 ? `${selectedLinkSource.title.slice(0, 30)}…` : selectedLinkSource.title}&rdquo; &rarr;
+              </Link>
+              <Link href={`/sources/${selectedLinkTarget.id}`} className="text-xs font-medium text-blue-600 hover:underline">
+                View &ldquo;{selectedLinkTarget.title.length > 30 ? `${selectedLinkTarget.title.slice(0, 30)}…` : selectedLinkTarget.title}&rdquo; &rarr;
+              </Link>
+            </div>
+          </div>
         ) : (
           <div className="rounded-lg border border-dashed border-slate-300 p-4 text-xs text-slate-500">
-            Click any node to see its details here. Hover a node to highlight its connections.
+            Click any node for its details, or click a connecting line to see how those two datasets are linked
+            (shared themes/keywords, or explicit lineage). Hover a node to highlight its connections.
           </div>
         )}
       </aside>
